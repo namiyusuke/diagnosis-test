@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
+    <title>お子様の習い事診断</title>
+    <style>
+      .question {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .results {
+        margin-top: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>お子様の習い事診断フォーム</h1>
+
+    <form id="lessonForm">
+      <h2>お子様の情報を入力してください</h2>
+
+<!-- お名前（ニックネーム） -->
+<label for="childName">お名前（ニックネーム）:</label>
+<input type="text" id="childName" name="childName" required>
+
+<!-- 性別 -->
+<label>性別:</label>
+<div class="radio-group">
+  <input type="radio" id="genderMale" name="gender" value="男の子" required>
+  <label for="genderMale">男の子</label>
+  <input type="radio" id="genderFemale" name="gender" value="女の子">
+  <label for="genderFemale">女の子</label>
+</div>
+
+<!-- 年齢 -->
+<label for="childAge">年齢:</label>
+<input type="number" id="childAge" name="childAge" min="0" max="18" required>
+      <!-- 素質診断の質問（1～47問目） -->
+      <h3>外見的素質</h3>
+      <!-- 質問1から質問20まで -->
+      <!-- 質問1 -->
+      <div class="question">
+        <label>1. 背が高いですか？</label>
+        <input type="radio" name="q1" value="はい" required />はい <input type="radio" name="q1" value="いいえ" />いいえ
+      </div>
+      <!-- 質問2 -->
+      <div class="question">
+        <label>2. 体が大きいですか？</label>
+        <input type="radio" name="q2" value="はい" required />はい <input type="radio" name="q2" value="いいえ" />いいえ
+      </div>
+      <!-- 質問3 -->
+      <div class="question">
+        <label>3. 手足が長いですか？</label>
+        <input type="radio" name="q3" value="はい" required />はい <input type="radio" name="q3" value="いいえ" />いいえ
+      </div>
+      <!-- 質問4 -->
+      <div class="question">
+        <label>4. 首が長いですか？</label>
+        <input type="radio" name="q4" value="はい" required />はい <input type="radio" name="q4" value="いいえ" />いいえ
+      </div>
+      <!-- 質問5 -->
+      <div class="question">
+        <label>5. 笑顔が魅力的ですか？</label>
+        <input type="radio" name="q5" value="はい" required />はい <input type="radio" name="q5" value="いいえ" />いいえ
+      </div>
+      <!-- 質問6から質問20まで同様に追加 -->
+      <!-- 省略せずに質問6から20まで記載します -->
+      <!-- 質問6 -->
+      <div class="question">
+        <label>6. 手先が器用ですか？</label>
+        <input type="radio" name="q6" value="はい" required />はい <input type="radio" name="q6" value="いいえ" />いいえ
+      </div>
+      <!-- 質問7 -->
+      <div class="question">
+        <label>7. 目が大きいですか？</label>
+        <input type="radio" name="q7" value="はい" required />はい <input type="radio" name="q7" value="いいえ" />いいえ
+      </div>
+      <!-- 質問8 -->
+      <div class="question">
+        <label>8. 髪が綺麗ですか？</label>
+        <input type="radio" name="q8" value="はい" required />はい <input type="radio" name="q8" value="いいえ" />いいえ
+      </div>
+      <!-- 質問9 -->
+      <div class="question">
+        <label>9. 声がよく通りますか？</label>
+        <input type="radio" name="q9" value="はい" required />はい <input type="radio" name="q9" value="いいえ" />いいえ
+      </div>
+      <!-- 質問10 -->
+      <div class="question">
+        <label>10. 表情が豊かですか？</label>
+        <input type="radio" name="q10" value="はい" required />はい
+        <input type="radio" name="q10" value="いいえ" />いいえ
+      </div>
+      <!-- 質問11 -->
+      <div class="question">
+        <label>11. リズム感がありますか？</label>
+        <input type="radio" name="q11" value="はい" required />はい
+        <input type="radio" name="q11" value="いいえ" />いいえ
+      </div>
+      <!-- 質問12 -->
+      <div class="question">
+        <label>12. 絵を描くのが好きですか？</label>
+        <input type="radio" name="q12" value="はい" required />はい
+        <input type="radio" name="q12" value="いいえ" />いいえ
+      </div>
+      <!-- 質問13 -->
+      <div class="question">
+        <label>13. 走るのが速いですか？</label>
+        <input type="radio" name="q13" value="はい" required />はい
+        <input type="radio" name="q13" value="いいえ" />いいえ
+      </div>
+      <!-- 質問14 -->
+      <div class="question">
+        <label>14. 足が速いですか？</label>
+        <input type="radio" name="q14" value="はい" required />はい
+        <input type="radio" name="q14" value="いいえ" />いいえ
+      </div>
+      <!-- 質問15 -->
+      <div class="question">
+        <label>15. 体力がありますか？</label>
+        <input type="radio" name="q15" value="はい" required />はい
+        <input type="radio" name="q15" value="いいえ" />いいえ
+      </div>
+      <!-- 質問16 -->
+      <div class="question">
+        <label>16. 柔軟性がありますか？</label>
+        <input type="radio" name="q16" value="はい" required />はい
+        <input type="radio" name="q16" value="いいえ" />いいえ
+      </div>
+      <!-- 質問17 -->
+      <div class="question">
+        <label>17. ダンスが好きですか？</label>
+        <input type="radio" name="q17" value="はい" required />はい
+        <input type="radio" name="q17" value="いいえ" />いいえ
+      </div>
+      <!-- 質問18 -->
+      <div class="question">
+        <label>18. ファッションに興味がありますか？</label>
+        <input type="radio" name="q18" value="はい" required />はい
+        <input type="radio" name="q18" value="いいえ" />いいえ
+      </div>
+      <!-- 質問19 -->
+      <div class="question">
+        <label>19. 目立つことが好きですか？</label>
+        <input type="radio" name="q19" value="はい" required />はい
+        <input type="radio" name="q19" value="いいえ" />いいえ
+      </div>
+      <!-- 質問20 -->
+      <div class="question">
+        <label>20. おしゃれが好きですか？</label>
+        <input type="radio" name="q20" value="はい" required />はい
+        <input type="radio" name="q20" value="いいえ" />いいえ
+      </div>
+
+      <h3>身体的素質</h3>
+      <!-- 質問21から質問38まで -->
+      <!-- 質問21 -->
+      <div class="question">
+        <label>21. 腕力が強いですか？</label>
+        <input type="radio" name="q21" value="はい" required />はい
+        <input type="radio" name="q21" value="いいえ" />いいえ
+      </div>
+      <!-- 質問22 -->
+      <div class="question">
+        <label>22. 握力が強いですか？</label>
+        <input type="radio" name="q22" value="はい" required />はい
+        <input type="radio" name="q22" value="いいえ" />いいえ
+      </div>
+      <!-- 質問23 -->
+      <div class="question">
+        <label>23. バランス感覚が良いですか？</label>
+        <input type="radio" name="q23" value="はい" required />はい
+        <input type="radio" name="q23" value="いいえ" />いいえ
+      </div>
+      <!-- 質問24 -->
+      <div class="question">
+        <label>24. 反射神経が良いですか？</label>
+        <input type="radio" name="q24" value="はい" required />はい
+        <input type="radio" name="q24" value="いいえ" />いいえ
+      </div>
+      <!-- 質問25 -->
+      <div class="question">
+        <label>25. スタミナがありますか？</label>
+        <input type="radio" name="q25" value="はい" required />はい
+        <input type="radio" name="q25" value="いいえ" />いいえ
+      </div>
+      <!-- 質問26 -->
+      <div class="question">
+        <label>26. 柔軟性が高いですか？</label>
+        <input type="radio" name="q26" value="はい" required />はい
+        <input type="radio" name="q26" value="いいえ" />いいえ
+      </div>
+      <!-- 質問27 -->
+      <div class="question">
+        <label>27. 体のコントロールが上手ですか？</label>
+        <input type="radio" name="q27" value="はい" required />はい
+        <input type="radio" name="q27" value="いいえ" />いいえ
+      </div>
+      <!-- 質問28 -->
+      <div class="question">
+        <label>28. スポーツ全般が得意ですか？</label>
+        <input type="radio" name="q28" value="はい" required />はい
+        <input type="radio" name="q28" value="いいえ" />いいえ
+      </div>
+      <!-- 質問29 -->
+      <div class="question">
+        <label>29. チームワークを大切にしますか？</label>
+        <input type="radio" name="q29" value="はい" required />はい
+        <input type="radio" name="q29" value="いいえ" />いいえ
+      </div>
+      <!-- 質問30 -->
+      <div class="question">
+        <label>30. 競争心が強いですか？</label>
+        <input type="radio" name="q30" value="はい" required />はい
+        <input type="radio" name="q30" value="いいえ" />いいえ
+      </div>
+      <!-- 質問31 -->
+      <div class="question">
+        <label>31. ダンスのリズムを感じ取れますか？</label>
+        <input type="radio" name="q31" value="はい" required />はい
+        <input type="radio" name="q31" value="いいえ" />いいえ
+      </div>
+      <!-- 質問32 -->
+      <div class="question">
+        <label>32. 手先が器用で細かい作業が得意ですか？</label>
+        <input type="radio" name="q32" value="はい" required />はい
+        <input type="radio" name="q32" value="いいえ" />いいえ
+      </div>
+      <!-- 質問33 -->
+      <div class="question">
+        <label>33. 機械や道具を使うのが得意ですか？</label>
+        <input type="radio" name="q33" value="はい" required />はい
+        <input type="radio" name="q33" value="いいえ" />いいえ
+      </div>
+      <!-- 質問34 -->
+      <div class="question">
+        <label>34. 音感が良いですか？</label>
+        <input type="radio" name="q34" value="はい" required />はい
+        <input type="radio" name="q34" value="いいえ" />いいえ
+      </div>
+      <!-- 質問35 -->
+      <div class="question">
+        <label>35. 色彩感覚がありますか？</label>
+        <input type="radio" name="q35" value="はい" required />はい
+        <input type="radio" name="q35" value="いいえ" />いいえ
+      </div>
+      <!-- 質問36 -->
+      <div class="question">
+        <label>36. 創造力が豊かですか？</label>
+        <input type="radio" name="q36" value="はい" required />はい
+        <input type="radio" name="q36" value="いいえ" />いいえ
+      </div>
+      <!-- 質問37 -->
+      <div class="question">
+        <label>37. 表現力がありますか？</label>
+        <input type="radio" name="q37" value="はい" required />はい
+        <input type="radio" name="q37" value="いいえ" />いいえ
+      </div>
+      <!-- 質問38 -->
+      <div class="question">
+        <label>38. コミュニケーション能力が高いですか？</label>
+        <input type="radio" name="q38" value="はい" required />はい
+        <input type="radio" name="q38" value="いいえ" />いいえ
+      </div>
+
+      <h3>頭脳的素質</h3>
+      <!-- 質問39から質問47まで -->
+      <!-- 質問39 -->
+      <div class="question">
+        <label>39. 記憶力がずば抜けて良いですか？</label>
+        <input type="radio" name="q39" value="はい" required />はい
+        <input type="radio" name="q39" value="いいえ" />いいえ
+      </div>
+      <!-- 質問40 -->
+      <div class="question">
+        <label>40. 集中力がずば抜けて高いですか？</label>
+        <input type="radio" name="q40" value="はい" required />はい
+        <input type="radio" name="q40" value="いいえ" />いいえ
+      </div>
+      <!-- 質問41 -->
+      <div class="question">
+        <label>41. 物事を論理的に考えるのが得意ですか？</label>
+        <input type="radio" name="q41" value="はい" required />はい
+        <input type="radio" name="q41" value="いいえ" />いいえ
+      </div>
+      <!-- 質問42 -->
+      <div class="question">
+        <label>42. 数学が得意ですか？</label>
+        <input type="radio" name="q42" value="はい" required />はい
+        <input type="radio" name="q42" value="いいえ" />いいえ
+      </div>
+      <!-- 質問43 -->
+      <div class="question">
+        <label>43. 科学に興味がありますか？</label>
+        <input type="radio" name="q43" value="はい" required />はい
+        <input type="radio" name="q43" value="いいえ" />いいえ
+      </div>
+      <!-- 質問44 -->
+      <div class="question">
+        <label>44. パズルや謎解きが好きですか？</label>
+        <input type="radio" name="q44" value="はい" required />はい
+        <input type="radio" name="q44" value="いいえ" />いいえ
+      </div>
+      <!-- 質問45 -->
+      <div class="question">
+        <label>45. プログラミングやロボットに興味がありますか？</label>
+        <input type="radio" name="q45" value="はい" required />はい
+        <input type="radio" name="q45" value="いいえ" />いいえ
+      </div>
+      <!-- 質問46 -->
+      <div class="question">
+        <label>46. 読書が好きですか？</label>
+        <input type="radio" name="q46" value="はい" required />はい
+        <input type="radio" name="q46" value="いいえ" />いいえ
+      </div>
+      <!-- 質問47 -->
+      <div class="question">
+        <label>47. 言葉の表現が得意ですか？</label>
+        <input type="radio" name="q47" value="はい" required />はい
+        <input type="radio" name="q47" value="いいえ" />いいえ
+      </div>
+
+      <!-- 気質診断の質問（48～57問目） -->
+      <h3>気質診断</h3>
+      <!-- ビッグファイブ性格特性の質問 -->
+      <!-- 質問48 -->
+    <!-- 質問48 -->
+<div class="question">
+  <p>48. お子様は新しいことに興味を持ちますか？（0～5で評価）</p>
+  <select id="q48" name="q48" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問49 -->
+<div class="question">
+  <p>49. お子様は計画的に行動しますか？（0～5で評価）</p>
+  <select id="q49" name="q49" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問50 -->
+<div class="question">
+  <p>50. お子様は感情の起伏が少ないですか？（0～5で評価）</p>
+  <select id="q50" name="q50" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問51 -->
+<div class="question">
+  <p>51. お子様は社交的ですか？（0～5で評価）</p>
+  <select id="q51" name="q51" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問52 -->
+<div class="question">
+  <p>52. お子様は他人に思いやりを持ちますか？（0～5で評価）</p>
+  <select id="q52" name="q52" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問53 -->
+<div class="question">
+  <p>53. お子様は競争心がありますか？（0～5で評価）</p>
+  <select id="q53" name="q53" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問54 -->
+<div class="question">
+  <p>54. お子様はリーダーシップを発揮しますか？（0～5で評価）</p>
+  <select id="q54" name="q54" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問55 -->
+<div class="question">
+  <p>55. お子様は協調性がありますか？（0～5で評価）</p>
+  <select id="q55" name="q55" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問56 -->
+<div class="question">
+  <p>56. お子様はストレスに強いですか？（0～5で評価）</p>
+  <select id="q56" name="q56" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問57 -->
+<div class="question">
+  <p>57. お子様は独立心がありますか？（0～5で評価）</p>
+  <select id="q57" name="q57" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+
+      <!-- 才能診断の質問（58～77問目） -->
+      <h3>才能診断</h3>
+      <!-- 質問58 -->
+<div class="question">
+  <p>58. お子様は論理的なパズルや問題を解くのが好きですか？（0～5で評価）</p>
+  <select id="q58" name="q58" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問59 -->
+<div class="question">
+  <p>59. お子様は物事の仕組みに興味を持ちますか？（0～5で評価）</p>
+  <select id="q59" name="q59" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問60 -->
+<div class="question">
+  <p>60. お子様は数学的な問題を解くのが得意ですか？（0～5で評価）</p>
+  <select id="q60" name="q60" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問61 -->
+<div class="question">
+  <p>61. お子様は新しいアイデアを考えるのが好きですか？（0～5で評価）</p>
+  <select id="q61" name="q61" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問62 -->
+<div class="question">
+  <p>62. お子様は創造的な活動（例：絵を描く、物語を書く）が好きですか？（0～5で評価）</p>
+  <select id="q62" name="q62" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問63 -->
+<div class="question">
+  <p>63. お子様は手先が器用ですか？（0～5で評価）</p>
+  <select id="q63" name="q63" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問64 -->
+<div class="question">
+  <p>64. お子様は細かい作業が得意ですか？（0～5で評価）</p>
+  <select id="q64" name="q64" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 以下、質問65～81も同様に追加します -->
+
+<!-- 質問65 -->
+<div class="question">
+  <p>65. お子様は音楽を聴くのが好きですか？（0～5で評価）</p>
+  <select id="q65" name="q65" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢を同様に追加 -->
+       <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問66 -->
+<div class="question">
+  <p>66. お子様は音の違いに敏感ですか？（0～5で評価）</p>
+  <select id="q66" name="q66" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢を同様に追加 -->
+      <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問67 -->
+<div class="question">
+  <p>67. お子様はリズム感がありますか？（0～5で評価）</p>
+  <select id="q67" name="q67" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢を同様に追加 -->
+      <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問68 -->
+<div class="question">
+  <p>68. お子様はダンスやリズム遊びが好きですか？（0～5で評価）</p>
+  <select id="q68" name="q68" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢を同様に追加 -->
+      <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様に選択肢を追加 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問69～81も同様に追加してください -->
+
+
+<!-- 質問69 -->
+<div class="question">
+  <p>69. お子様は色を使って表現するのが好きですか？（0～5で評価）</p>
+  <select id="q69" name="q69" required>
+    <option value="">選択してください</option>
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問70 -->
+<div class="question">
+  <p>70. お子様は新しい発想を生み出すのが得意ですか？（0～5で評価）</p>
+  <select id="q70" name="q70" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問71 -->
+<div class="question">
+  <p>71. お子様は一つのことに長時間集中できますか？（0～5で評価）</p>
+  <select id="q71" name="q71" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問72 -->
+<div class="question">
+  <p>72. お子様は問題が起きたときに解決策を考えるのが好きですか？（0～5で評価）</p>
+  <select id="q72" name="q72" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問73 -->
+<div class="question">
+  <p>73. お子様は細かい部分に気を配ることが得意ですか？（0～5で評価）</p>
+  <select id="q73" name="q73" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問74 -->
+<div class="question">
+  <p>74. お子様は言葉を使って表現するのが好きですか？（0～5で評価）</p>
+  <select id="q74" name="q74" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問75 -->
+<div class="question">
+  <p>75. お子様は素早く動くことが得意ですか？（0～5で評価）</p>
+  <select id="q75" name="q75" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問76 -->
+<div class="question">
+  <p>76. お子様は長時間の運動を続けることができますか？（0～5で評価）</p>
+  <select id="q76" name="q76" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問77 -->
+<div class="question">
+  <p>77. お子様はボールをキャッチするのが得意ですか？（0～5で評価）</p>
+  <select id="q77" name="q77" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問78 -->
+<div class="question">
+  <p>78. お子様は友達と協力して遊ぶのが好きですか？（0～5で評価）</p>
+  <select id="q78" name="q78" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <!-- 以下同様 -->
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+<!-- 質問79 -->
+<div class="question">
+  <p>79. お子様は身長が高いほうですか？（0～5で評価）</p>
+  <select id="q79" name="q79" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（非常に低い）</option>
+    <option value="1">1（低い）</option>
+    <option value="2">2（やや低い）</option>
+    <option value="3">3（平均的）</option>
+    <option value="4">4（やや高い）</option>
+    <option value="5">5（高い）</option>
+  </select>
+</div>
+
+<!-- 質問80 -->
+<div class="question">
+  <p>80. お子様は体力がありますか？（0～5で評価）</p>
+  <select id="q80" name="q80" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったくない）</option>
+    <option value="1">1（あまりない）</option>
+    <option value="2">2（ややない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（ややある）</option>
+    <option value="5">5（非常にある）</option>
+  </select>
+</div>
+
+<!-- 質問81 -->
+<div class="question">
+  <p>81. お子様は新しいスポーツに挑戦するのが好きですか？（0～5で評価）</p>
+  <select id="q81" name="q81" required>
+    <option value="">選択してください</option>
+    <!-- 選択肢 -->
+    <option value="0">0（まったく当てはまらない）</option>
+    <option value="1">1（あまり当てはまらない）</option>
+    <option value="2">2（やや当てはまらない）</option>
+    <option value="3">3（どちらともいえない）</option>
+    <option value="4">4（やや当てはまる）</option>
+    <option value="5">5（非常に当てはまる）</option>
+  </select>
+</div>
+
+
+      <input type="submit" value="診断結果を表示" />
+    </form>
+
+    <h2>おすすめの習い事</h2>
+    <div id="lessonRecommendation" class="results"></div>
+    <script>
+  // フォームの送信イベントのリスナー
+document.getElementById("lessonForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const answers = [];
+
+  // お子様の情報を取得
+  const childName = document.getElementById("childName").value;
+  const genderRadio = document.querySelector('input[name="gender"]:checked');
+  const childGender = genderRadio ? genderRadio.value : '';
+  const childAge = parseInt(document.getElementById("childAge").value);
+
+  if (!childName || !childGender || isNaN(childAge)) {
+    alert("お子様の情報を正しく入力してください。");
+    return;
+  }
+
+  // 素質診断の回答を収集（1～47問目）
+  for (let i = 1; i <= 47; i++) {
+    const answer = document.querySelector(`input[name="q${i}"]:checked`);
+    if (!answer) {
+      alert("すべての質問に回答してください。");
+      return;
+    }
+    answers.push(answer.value === "はい" ? 1 : 0);
+  }
+
+// 気質診断の回答を収集（48～57問目）
+for (let i = 48; i <= 57; i++) {
+  const answer = parseInt(document.getElementById(`q${i}`).value);
+  if (isNaN(answer) || answer < 0 || answer > 5) {
+    alert("すべての質問に0～5の数値で回答してください。");
+    return;
+  }
+  answers.push(answer);
+}
+
+// 才能診断の回答を収集（58～81問目）
+for (let i = 58; i <= 81; i++) {
+  let answer;
+  if (i >= 61) {
+    // 質問61～81は<select>から値を取得
+    const answerElement = document.getElementById(`q${i}`);
+    answer = parseInt(answerElement.value);
+  } else {
+    // 質問58～60は<select>または<input type="number">から値を取得
+    const answerElement = document.getElementById(`q${i}`);
+    answer = parseInt(answerElement.value);
+  }
+  if (isNaN(answer) || answer < 0 || answer > 5) {
+    alert(`質問${i}に0～5の数値を入力または選択してください。`);
+    return;
+  }
+  answers.push(answer);
+}
+
+  const recommendations = generateLessonRecommendations(answers, childName, childGender, childAge);
+  document.getElementById("lessonRecommendation").innerHTML = recommendations;
+});
+
+// レッスンのおすすめを生成する関数
+function generateLessonRecommendations(answers, childName, childGender, childAge) {
+  // スコアの計算（素質診断、気質診断、才能診断）
+  const scores = calculateScores(answers);
+
+  // 習い事の候補リスト
+  const lessons = [
+    // 運動系
+    {
+      name: "バスケットボール",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          athleteAptitude: 14,
+          extraversion: 5,
+          heightAdvantage: 5,
+        });
+      },
+    },
+    {
+      name: "サッカー",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          athleteAptitude: 14,
+          agility: 5,
+          teamSpirit: 5,
+        });
+      },
+    },
+    {
+      name: "水泳",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          endurance: 5,
+        });
+      },
+    },
+    {
+      name: "テニス",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          conscientiousness: 10,
+          handEyeCoordination: 5,
+        });
+      },
+    },
+    {
+      name: "野球",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          athleteAptitude: 14,
+          teamSpirit: 5,
+        });
+      },
+    },
+    // 音楽系
+    {
+      name: "ピアノ",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          musicianAptitude: 5,
+          conscientiousness: 5,
+          fineMotorSkills: 10,
+        });
+      },
+    },
+    {
+      name: "バイオリン",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          musicianAptitude: 5,
+          auditorySensitivity: 5,
+          patience: 5,
+        });
+      },
+    },
+    {
+      name: "チェロ",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          musicianAptitude: 5,
+          emotionalStability: 5,
+          rhythmSense: 5,
+        });
+      },
+    },
+    // アート系
+    {
+      name: "絵画",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          artistAptitude: 5,
+          colorSense: 5,
+        });
+      },
+    },
+    {
+      name: "デザイン",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          artistAptitude: 5,
+          innovation: 5,
+        });
+      },
+    },
+    {
+      name: "クラフト",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          creativeTalent: 10,
+          artistAptitude: 5,
+          fineMotorSkills: 5,
+        });
+      },
+    },
+    // 言語・表現系
+    {
+      name: "英会話",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          openness: 5,
+          logicalTalent: 10,
+          languageAptitude: 5,
+        });
+      },
+    },
+    {
+      name: "書道",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          conscientiousness: 5,
+          creativeTalent: 10,
+          patience: 5,
+        });
+      },
+    },
+    // STEM系
+    {
+      name: "プログラミング",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          logicalTalent: 10,
+          engineerAptitude: 7,
+          attentionToDetail: 5,
+        });
+      },
+    },
+    {
+      name: "ロボット制作",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          logicalTalent: 10,
+          engineerAptitude: 7,
+          problemSolving: 5,
+        });
+      },
+    },
+    // その他
+    {
+      name: "ボードゲームクラブ",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          logicalTalent: 10,
+          socialTalent: 5,
+          strategyThinking: 5,
+        });
+      },
+    },
+  ];
+
+  // おすすめの習い事を選定
+  const recommendedLessons = lessons
+    .map((lesson) => {
+      const score = lesson.criteria(scores);
+      return { name: lesson.name, score: score };
+    })
+    .filter((lesson) => lesson.score > 0);
+
+  if (recommendedLessons.length === 0) {
+    return `<p>申し訳ありませんが、適した習い事が見つかりませんでした。</p>`;
+  }
+
+  // 適性度でソート
+  recommendedLessons.sort((a, b) => b.score - a.score);
+
+  // 結果を生成
+  let result = `<p><strong>${childName}さん（${childAge}歳、${childGender}）におすすめの習い事:</strong></p><ul>`;
+  recommendedLessons.forEach((lesson) => {
+    const aptitudePercentage = Math.min(100, Math.round(lesson.score * 100));
+    result += `<li>${lesson.name}: 適性度 ${aptitudePercentage}%</li>`;
+  });
+  result += `</ul>`;
+
+  return result;
+}
+
+// スコアを計算する関数
+function calculateScores(answers) {
+  // 素質診断の回答（1～47問目）
+  const aptitudeAnswers = answers.slice(0, 47);
+
+  // 気質診断の回答（48～57問目）
+  const traitAnswers = answers.slice(47, 57);
+
+  // 才能診断の回答（58～81問目）
+  const talentAnswers = answers.slice(57);
+
+  // 素質診断のスコア計算
+  const aptitudeScores = calculateAptitudeScores(aptitudeAnswers);
+
+  // 気質診断のスコア計算
+  const traitScores = calculateTraitScores(traitAnswers);
+
+  // 才能診断のスコア計算
+  const talentScores = calculateTalentScores(talentAnswers);
+
+  // その他の才能・特性のスコア計算
+  const fineMotorSkills = calculateFineMotorSkills(talentAnswers);
+  const auditorySensitivity = calculateAuditorySensitivity(talentAnswers);
+  const rhythmSense = calculateRhythmSense(talentAnswers);
+  const colorSense = calculateColorSense(talentAnswers);
+  const innovation = calculateInnovation(talentAnswers);
+  const patience = calculatePatience(talentAnswers);
+  const problemSolving = calculateProblemSolving(talentAnswers);
+  const attentionToDetail = calculateAttentionToDetail(talentAnswers);
+  const languageAptitude = calculateLanguageAptitude(talentAnswers);
+  const agility = calculateAgility(talentAnswers);
+  const endurance = calculateEndurance(talentAnswers);
+  const handEyeCoordination = calculateHandEyeCoordination(talentAnswers);
+  const teamSpirit = calculateTeamSpirit(talentAnswers);
+  const heightAdvantage = calculateHeightAdvantage(talentAnswers);
+
+  return {
+    aptitudeScores,
+    traitScores,
+    talentScores,
+    fineMotorSkills,
+    auditorySensitivity,
+    rhythmSense,
+    colorSense,
+    innovation,
+    patience,
+    problemSolving,
+    attentionToDetail,
+    languageAptitude,
+    agility,
+    endurance,
+    handEyeCoordination,
+    teamSpirit,
+    heightAdvantage,
+  };
+}
+
+function calculateAptitudeScores(aptitudeAnswers) {
+  // 素質診断のスコア計算
+  const aptitudeCategories = {
+    "スポーツ選手": [11, 12, 13, 14, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28],
+    "ダンサー": [7, 15, 22, 24, 28, 29, 32, 33, 34],
+    "ミュージシャン": [5, 7, 29, 32],
+    "数学者": [39, 40, 41, 42],
+    "言語学者": [35, 36, 37, 38],
+    "エンジニア": [22, 29, 30, 31, 40, 41, 42],
+    "芸術家": [10, 34, 35],
+    "俳優": [5, 8, 9, 15, 17, 34],
+  };
+  const aptitudeScores = {};
+
+  for (let category in aptitudeCategories) {
+    let score = 0;
+    aptitudeCategories[category].forEach((index) => {
+      score += aptitudeAnswers[index];
+    });
+    aptitudeScores[category] = score;
+  }
+
+  return aptitudeScores;
+}
+
+function calculateTraitScores(traitAnswers) {
+  // 気質診断のスコア計算
+  const traitScores = {
+    openness: traitAnswers[0],
+    conscientiousness: traitAnswers[1],
+    emotionalStability: traitAnswers[2],
+    extraversion: traitAnswers[3],
+    agreeableness: traitAnswers[4],
+    competitiveness: traitAnswers[5],
+    leadership: traitAnswers[6],
+    cooperativeness: traitAnswers[7],
+    stressTolerance: traitAnswers[8],
+    independence: traitAnswers[9],
+  };
+  return traitScores;
+}
+
+function calculateTalentScores(talentAnswers) {
+  const talents = {
+    "論理的才能": [0, 1, 2],
+    "創造的才能": [3, 4],
+    "身体的才能": [5, 6],
+    "対人的才能": [7],
+  };
+
+  const talentScores = {};
+
+  for (let talent in talents) {
+    let total = 0;
+    talents[talent].forEach((index) => {
+      total += talentAnswers[index];
+    });
+    talentScores[talent] = total;
+  }
+
+  return talentScores;
+}
+
+function sumAnswers(answers, indices) {
+  let total = 0;
+  indices.forEach((index) => {
+    total += answers[index];
+  });
+  return total;
+}
+
+// 各種才能・特性のスコア計算関数
+function calculateFineMotorSkills(talentAnswers) {
+  const indices = [5, 6]; // 質問63, 64
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAuditorySensitivity(talentAnswers) {
+  const indices = [8]; // 質問66
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateRhythmSense(talentAnswers) {
+  const indices = [9, 10]; // 質問67, 68
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateColorSense(talentAnswers) {
+  const indices = [11]; // 質問69
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateInnovation(talentAnswers) {
+  const indices = [12]; // 質問70
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculatePatience(talentAnswers) {
+  const indices = [13]; // 質問71
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateProblemSolving(talentAnswers) {
+  const indices = [14]; // 質問72
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAttentionToDetail(talentAnswers) {
+  const indices = [15]; // 質問73
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateLanguageAptitude(talentAnswers) {
+  const indices = [16]; // 質問74
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAgility(talentAnswers) {
+  const indices = [17]; // 質問75
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateEndurance(talentAnswers) {
+  const indices = [18]; // 質問76
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateHandEyeCoordination(talentAnswers) {
+  const indices = [19]; // 質問77
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateTeamSpirit(talentAnswers) {
+  const indices = [20]; // 質問78
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateHeightAdvantage(talentAnswers) {
+  const indices = [21]; // 質問79
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateLessonScore(scores, criteria) {
+  let totalWeight = 0;
+  let achievedScore = 0;
+
+  // 各条件の重みを設定（必要に応じて調整可能）
+  const weights = {
+    physicalTalent: 1,
+    creativeTalent: 1,
+    logicalTalent: 1,
+    socialTalent: 1,
+    openness: 0.5,
+    conscientiousness: 0.5,
+    emotionalStability: 0.5,
+    extraversion: 0.5,
+    agreeableness: 0.5,
+    competitiveness: 0.5,
+    athleteAptitude: 1,
+    dancerAptitude: 1,
+    musicianAptitude: 1,
+    artistAptitude: 1,
+    actorAptitude: 1,
+    engineerAptitude: 1,
+    mathematicianAptitude: 1,
+    fineMotorSkills: 1,
+    auditorySensitivity: 1,
+    rhythmSense: 1,
+    colorSense: 0.5,
+    innovation: 0.5,
+    patience: 0.5,
+    problemSolving: 0.5,
+    attentionToDetail: 0.5,
+    languageAptitude: 0.5,
+    agility: 0.5,
+    endurance: 0.5,
+    handEyeCoordination: 0.5,
+    teamSpirit: 0.5,
+    heightAdvantage: 0.5,
+  };
+
+  for (let key in criteria) {
+    totalWeight += weights[key] || 1;
+    let scoreValue = 0;
+
+    // スコアの取得
+    switch (key) {
+      case "physicalTalent":
+        scoreValue = scores.talentScores["身体的才能"];
+        break;
+      case "creativeTalent":
+        scoreValue = scores.talentScores["創造的才能"];
+        break;
+      case "logicalTalent":
+        scoreValue = scores.talentScores["論理的才能"];
+        break;
+      case "socialTalent":
+        scoreValue = scores.talentScores["対人的才能"];
+        break;
+      case "openness":
+      case "conscientiousness":
+      case "emotionalStability":
+      case "extraversion":
+      case "agreeableness":
+      case "competitiveness":
+      case "leadership":
+      case "cooperativeness":
+      case "stressTolerance":
+      case "independence":
+        scoreValue = scores.traitScores[key];
+        break;
+      case "athleteAptitude":
+      case "dancerAptitude":
+      case "musicianAptitude":
+      case "artistAptitude":
+      case "actorAptitude":
+      case "engineerAptitude":
+      case "mathematicianAptitude":
+        scoreValue = scores.aptitudeScores[key];
+        break;
+      case "fineMotorSkills":
+      case "auditorySensitivity":
+      case "rhythmSense":
+      case "colorSense":
+      case "innovation":
+      case "patience":
+      case "problemSolving":
+      case "attentionToDetail":
+      case "languageAptitude":
+      case "agility":
+      case "endurance":
+      case "handEyeCoordination":
+      case "teamSpirit":
+      case "heightAdvantage":
+        scoreValue = scores[key];
+        break;
+      default:
+        scoreValue = 0;
+    }
+
+    // スコアを0～1に正規化し、重みを掛けて加算
+    let normalizedScore = Math.min(1, scoreValue / criteria[key]);
+    achievedScore += (normalizedScore * weights[key]) || 0;
+  }
+
+  // 合計スコアを計算
+  const finalScore = achievedScore / totalWeight;
+
+  return finalScore;
+}
+
+    </script>
+
+    <!-- JavaScriptコードは前回提供したものを使用してください -->
+  </body>
+</html>

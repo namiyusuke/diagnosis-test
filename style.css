@@ -1,0 +1,205 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+h1,h2{
+  text-align: center;
+}
+/* フォーム全体のスタイル */
+form#lessonForm {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+/* 見出しのスタイル */
+form#lessonForm h2 {
+  margin-top: 30px;
+  font-size: 1.5em;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+/* 質問セクションのスタイル */
+form#lessonForm .question {
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+
+/* 質問文のスタイル */
+form#lessonForm .question p {
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* ラジオボタンのコンテナ */
+form#lessonForm .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+/* ラジオボタンを非表示にしてカスタムスタイルを適用 */
+form#lessonForm .radio-group input[type="radio"] {
+  display: none;
+}
+
+/* ラベルのスタイル */
+form#lessonForm .radio-group label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #333;
+  user-select: none;
+}
+
+/* カスタムラジオボタンのスタイル */
+form#lessonForm .radio-group label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* ラジオボタンが選択されたときのスタイル */
+form#lessonForm .radio-group input[type="radio"]:checked + label::before {
+  border-color: #4CAF50;
+  background-color: #4CAF50;
+}
+
+/* カスタムラジオボタンの内側の点 */
+form#lessonForm .radio-group label::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+/* ラジオボタンが選択されたときの内側の点のスタイル */
+form#lessonForm .radio-group input[type="radio"]:checked + label::after {
+  opacity: 1;
+}
+
+/* ホバー時の効果 */
+form#lessonForm .radio-group label:hover::before {
+  border-color: #4CAF50;
+}
+
+/* キーボードフォーカス時の効果 */
+form#lessonForm .radio-group input[type="radio"]:focus + label::before {
+  outline: 2px solid #4CAF50;
+}
+
+/* テキスト入力やセレクトボックスのスタイル */
+form#lessonForm input[type="text"],
+form#lessonForm input[type="number"],
+form#lessonForm select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ボタンのスタイル */
+form#lessonForm input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 25px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+form#lessonForm input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* ラベルと入力フィールドの間隔を調整 */
+form#lessonForm label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* メディアクエリでモバイル対応 */
+@media screen and (max-width: 600px) {
+  form#lessonForm {
+    padding: 0 15px;
+  }
+
+  form#lessonForm .radio-group {
+    flex-direction: column;
+  }
+
+  form#lessonForm input[type="submit"] {
+    width: 100%;
+  }
+
+  form#lessonForm .radio-group label {
+    padding-left: 35px;
+  }
+}
+/* 結果表示部分のスタイル */
+#lessonRecommendation {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+}
+
+#lessonRecommendation p strong {
+  font-size: 1.2em;
+  color: #4CAF50;
+}
+
+#lessonRecommendation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+#lessonRecommendation li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#lessonRecommendation li:hover {
+  background-color: #f1f1f1;
+}
+
+#lessonRecommendation li::before {
+  content: "🏅";
+  margin-right: 10px;
+}

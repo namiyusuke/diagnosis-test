@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>才能評価</title>
+  </head>
+  <body>
+    <h1>才能診断フォーム</h1>
+
+    <form id="quiz-form">
+      <div class="question">
+        <label for="q1">1. 立体パズルやオセロ、将棋など頭を使う遊びが好き</label>
+        <select id="q1" name="q1" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q2">2. 計算が得意で、数字への抵抗感がない</label>
+        <select id="q2" name="q2" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q3">3. 好奇心が旺盛で質問をよくする</label>
+        <select id="q3" name="q3" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q4">4. 機械やおもちゃの仕組みに興味がある</label>
+        <select id="q4" name="q4" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q5">5. 一人でいる時に本を読んでいる</label>
+        <select id="q5" name="q5" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q6">6. 動物や昆虫について学んだり、世話をするのが好き</label>
+        <select id="q6" name="q6" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q7">7. 語彙が豊富で大人とおしゃべりするのが好き</label>
+        <select id="q7" name="q7" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q8">8. 手紙や日記など文章を書くことが好き</label>
+        <select id="q8" name="q8" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q9">9. 体を動かすこと（運動）が好き</label>
+        <select id="q9" name="q9" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q10">10. バランス感覚が良く、動きが機敏</label>
+        <select id="q10" name="q10" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q11">11. 物を投げたりキャッチするのが得意</label>
+        <select id="q11" name="q11" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q12">12. 手先が器用で細かい作業が得意</label>
+        <select id="q12" name="q12" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q13">13. よく歌ったり、ハミングしたりする</label>
+        <select id="q13" name="q13" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q14">14. 音楽やリズムに体が自然に反応する</label>
+        <select id="q14" name="q14" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q15">15. 音が出るおもちゃで遊んだり、音を出すことが好き</label>
+        <select id="q15" name="q15" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q16">16. TVコマーシャルのメロディや歌詞をすぐ覚える</label>
+        <select id="q16" name="q16" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q17">17. 絵を描いたりデザインするのが好き</label>
+        <select id="q17" name="q17" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q18">18. 図鑑や写真集、映像などを見るのが好き</label>
+        <select id="q18" name="q18" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q19">19. クラフトや工作などモノ作りが好き</label>
+        <select id="q19" name="q19" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q20">20. ごっこ遊び、空想遊び、演じるのが好き</label>
+        <select id="q20" name="q20" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <button type="submit">診断結果を表示</button>
+    </form>
+
+    <h2>診断結果:</h2>
+    <p id="result"></p>
+
+    <script>
+      document.getElementById("quiz-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const answers = {};
+
+        formData.forEach((value, key) => {
+          answers[key] = parseInt(value);
+        });
+
+        const result = generateTalentSummary(answers);
+        document.getElementById("result").textContent = result;
+      });
+
+      function generateTalentSummary(answers) {
+        const scores = {
+          logical: calculateLogicalTalent(answers),
+          creative: calculateCreativeTalent(answers),
+          physical: calculatePhysicalTalent(answers),
+          interpersonal: calculateInterpersonalTalent(answers),
+        };
+
+        const logicalDesc = getLogicalTalentDescription(scores.logical);
+        const creativeDesc = getCreativeTalentDescription(scores.creative);
+        const physicalDesc = getPhysicalTalentDescription(scores.physical);
+        const interpersonalDesc = getInterpersonalTalentDescription(scores.interpersonal);
+
+        return `才能診断結果:\n
+          論理的才能: ${logicalDesc}\n
+          創造的才能: ${creativeDesc}\n
+          身体的才能: ${physicalDesc}\n
+          対人関係的才能: ${interpersonalDesc}`;
+      }
+
+      function calculateLogicalTalent(answers) {
+        const logicalQuestions = ["q1", "q2", "q3", "q4", "q5"];
+        return getAverageScore(logicalQuestions, answers);
+      }
+
+      function calculateCreativeTalent(answers) {
+        const creativeQuestions = ["q7", "q8", "q13", "q17", "q19"];
+        return getAverageScore(creativeQuestions, answers);
+      }
+
+      function calculatePhysicalTalent(answers) {
+        const physicalQuestions = ["q9", "q10", "q11", "q14"];
+        return getAverageScore(physicalQuestions, answers);
+      }
+
+      function calculateInterpersonalTalent(answers) {
+        const interpersonalQuestions = ["q6", "q7", "q20"];
+        return getAverageScore(interpersonalQuestions, answers);
+      }
+
+      function getAverageScore(questions, answers) {
+        const total = questions.reduce((sum, question) => sum + answers[question], 0);
+        return total / questions.length;
+      }
+
+      function getLogicalTalentDescription(score) {
+        if (score >= 4) {
+          return "非常に高い論理的思考力を持っています。";
+        } else if (score >= 3) {
+          return "高い論理的思考力を持っています。";
+        } else if (score >= 2) {
+          return "平均的な論理的思考力です。";
+        } else {
+          return "論理的思考力が低い傾向があります。";
+        }
+      }
+
+      function getCreativeTalentDescription(score) {
+        if (score >= 4) {
+          return "非常に高い創造力を持っています。";
+        } else if (score >= 3) {
+          return "高い創造力を持っています。";
+        } else if (score >= 2) {
+          return "平均的な創造力です。";
+        } else {
+          return "創造力が低い傾向があります。";
+        }
+      }
+
+      function getPhysicalTalentDescription(score) {
+        if (score >= 4) {
+          return "非常に高い身体的才能を持っています。";
+        } else if (score >= 3) {
+          return "高い身体的才能を持っています。";
+        } else if (score >= 2) {
+          return "平均的な身体的才能です。";
+        } else {
+          return "身体的才能が低い傾向があります。";
+        }
+      }
+
+      function getInterpersonalTalentDescription(score) {
+        if (score >= 4) {
+          return "非常に高い対人関係スキルを持っています。";
+        } else if (score >= 3) {
+          return "高い対人関係スキルを持っています。";
+        } else if (score >= 2) {
+          return "平均的な対人関係スキルです。";
+        } else {
+          return "対人関係スキルが低い傾向があります。";
+        }
+      }
+    </script>
+  </body>
+</html>

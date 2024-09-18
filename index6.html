@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>気質診断フォーム</title>
+  </head>
+  <body>
+    <h1>気質診断フォーム</h1>
+    <form id="quiz-form">
+      <div class="question">
+        <label for="q1">1. 新しいアイデアや概念に興味がある (開放性)</label>
+        <select id="q1" name="q1" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q2">2. 計画的に物事を進める (誠実性)</label>
+        <select id="q2" name="q2" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q3">3. ストレスに強い (情緒安定性)</label>
+        <select id="q3" name="q3" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q4">4. 社交的で友達と過ごすのが好き (外向性)</label>
+        <select id="q4" name="q4" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q5">5. 他人の気持ちに共感しやすい (協調性)</label>
+        <select id="q5" name="q5" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q6">6. 新しい経験を楽しむ (開放性)</label>
+        <select id="q6" name="q6" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q7">7. 責任感が強い (誠実性)</label>
+        <select id="q7" name="q7" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q8">8. 冷静に物事を判断できる (情緒安定性)</label>
+        <select id="q8" name="q8" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q9">9. 新しい友達を作るのが得意 (外向性)</label>
+        <select id="q9" name="q9" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="question">
+        <label for="q10">10. 他人を助けたいという気持ちが強い (協調性)</label>
+        <select id="q10" name="q10" required>
+          <option value="" disabled selected>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <button type="submit">診断結果を表示</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+      document.getElementById("quiz-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const answers = [
+          parseInt(document.getElementById("q1").value),
+          parseInt(document.getElementById("q2").value),
+          parseInt(document.getElementById("q3").value),
+          parseInt(document.getElementById("q4").value),
+          parseInt(document.getElementById("q5").value),
+          parseInt(document.getElementById("q6").value),
+          parseInt(document.getElementById("q7").value),
+          parseInt(document.getElementById("q8").value),
+          parseInt(document.getElementById("q9").value),
+          parseInt(document.getElementById("q10").value),
+        ];
+
+        if (answers.includes(NaN)) {
+          alert("すべての質問に回答してください。");
+          return;
+        }
+
+        const name = "太郎";
+        const age = 10;
+        const gender = "男";
+        const summary = generateTraitsSummary(name, age, gender, answers);
+
+        const resultDiv = document.getElementById("result");
+        resultDiv.textContent = summary;
+        resultDiv.style.display = "block";
+      });
+
+      function calculateTraitScores(answers) {
+        const opennessScore = answers[0] + answers[5];
+        const conscientiousnessScore = answers[1] + answers[6];
+        const emotionalStabilityScore = answers[2] + answers[7];
+        const extraversionScore = answers[3] + answers[8];
+        const agreeablenessScore = answers[4] + answers[9];
+        return {
+          openness: opennessScore,
+          conscientiousness: conscientiousnessScore,
+          emotionalStability: emotionalStabilityScore,
+          extraversion: extraversionScore,
+          agreeableness: agreeablenessScore,
+        };
+      }
+
+      function evaluateTrait(score) {
+        if (score >= 9) {
+          return "非常に高い";
+        } else if (score >= 7) {
+          return "高い";
+        } else if (score >= 4) {
+          return "普通";
+        } else {
+          return "低い";
+        }
+      }
+
+      function generateTraitsSummary(name, age, gender, answers) {
+        const scores = calculateTraitScores(answers);
+
+        const openness = evaluateTrait(scores.openness);
+        const conscientiousness = evaluateTrait(scores.conscientiousness);
+        const emotionalStability = evaluateTrait(scores.emotionalStability);
+        const extraversion = evaluateTrait(scores.extraversion);
+        const agreeableness = evaluateTrait(scores.agreeableness);
+
+        const opennessDesc = getOpennessDescription(openness);
+        const conscientiousnessDesc = getConscientiousnessDescription(conscientiousness);
+        const emotionalStabilityDesc = getEmotionalStabilityDescription(emotionalStability);
+        const extraversionDesc = getExtraversionDescription(extraversion);
+        const agreeablenessDesc = getAgreeablenessDescription(agreeableness);
+
+        return `${name}さん (${age}歳, ${gender}) の診断結果:\n
+          開放性: ${openness} - ${opennessDesc}\n
+          誠実性: ${conscientiousness} - ${conscientiousnessDesc}\n
+          情緒安定性: ${emotionalStability} - ${emotionalStabilityDesc}\n
+          外向性: ${extraversion} - ${extraversionDesc}\n
+          協調性: ${agreeableness} - ${agreeablenessDesc}`;
+      }
+
+      function getOpennessDescription(evaluation) {
+        if (evaluation === "非常に高い") {
+          return "開放性が非常に高く、非常に高い探究心と好奇心を持ち、学ぶことが大好きです。新しいアイデアや概念に対してオープンで、創造的な思考力があります。";
+        } else if (evaluation === "高い") {
+          return "開放性が高く、探究心と好奇心を持ち、新しいことにも興味を示します。";
+        } else if (evaluation === "普通") {
+          return "開放性が普通で、適度な探究心と好奇心を持ち、新しいことにも興味を示しますが、バランスを保ちつつ進んでいくことが得意です。";
+        } else if (evaluation === "低い") {
+          return "開放性が低く、新しい経験に対して慎重で、変化をあまり好まない性格です。";
+        } else {
+          return "開放性が非常に低く、新しい経験に対して非常に慎重で、変化を極力避ける傾向があります。";
+        }
+      }
+
+      function getConscientiousnessDescription(evaluation) {
+        if (evaluation === "非常に高い") {
+          return "誠実性が非常に高く、非常に計画的で、常に慎重に物事を進めます。目標に向かって粘り強く努力し、責任感が強いです。";
+        } else if (evaluation === "高い") {
+          return "誠実性が高く、計画性があり、慎重に物事を進めます。";
+        } else if (evaluation === "普通") {
+          return "誠実性が普通で、計画性があり、慎重に物事を進めますが、柔軟に対応することもできます。";
+        } else if (evaluation === "低い") {
+          return "誠実性が低く、計画性が低く、時に衝動的に行動することがあります。";
+        } else {
+          return "誠実性が非常に低く、計画的な行動が苦手で、衝動的に行動することが多いです。";
+        }
+      }
+
+      function getEmotionalStabilityDescription(evaluation) {
+        if (evaluation === "非常に高い") {
+          return "情緒安定性が非常に高く、感情のコントロールが上手で、ストレスに対して非常に強いです。冷静に状況を判断し、安定した気持ちを保ちます。";
+        } else if (evaluation === "高い") {
+          return "情緒安定性が高く、感情のコントロールが上手で、ストレスに対して強いです。";
+        } else if (evaluation === "普通") {
+          return "情緒安定性が普通で、情緒が安定しており、ストレスに対して適度な耐性があります。";
+        } else if (evaluation === "低い") {
+          return "情緒安定性が低く、感情の起伏が激しく、ストレスに弱い傾向があります。";
+        } else {
+          return "情緒安定性が非常に低く、感情のコントロールが難しく、ストレスに非常に弱いです。";
+        }
+      }
+
+      function getExtraversionDescription(evaluation) {
+        if (evaluation === "非常に高い") {
+          return "外向性が非常に高く、非常に社交的で、活発に友達と過ごすことができます。人前での表現やパフォーマンスに優れ、観客を引きつける力があります。";
+        } else if (evaluation === "高い") {
+          return "外向性が高く、社交的で、友達と過ごすことが好きです。";
+        } else if (evaluation === "普通") {
+          return "外向性が普通で、社交的な面もありながら、一人の時間も大切にします。";
+        } else if (evaluation === "低い") {
+          return "外向性が低く、内向的で、静かな環境を好む性格です。";
+        } else {
+          return "外向性が非常に低く、非常に内向的で、一人でいることを好みます。";
+        }
+      }
+
+      function getAgreeablenessDescription(evaluation) {
+        if (evaluation === "非常に高い") {
+          return "協調性が非常に高く、非常に思いやりがあり、他人の気持ちを深く理解することができます。協力やチームワークを重視し、友達との協調性が高いです。";
+        } else if (evaluation === "高い") {
+          return "協調性が高く、思いやりがあり、他人の気持ちを理解することができます。";
+        } else if (evaluation === "普通") {
+          return "協調性が普通で、思いやりがあり、優しい性格ですが、自己主張も大切にします。";
+        } else if (evaluation === "低い") {
+          return "協調性が低く、自己中心的で、競争心が強い一面があります。";
+        } else {
+          return "協調性が非常に低く、自己中心的で、他人と協力するよりも自分の意見を重視する傾向があります。";
+        }
+      }
+    </script>
+  </body>
+</html>

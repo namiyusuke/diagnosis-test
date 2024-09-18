@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最適な習い事診断</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h2,
+      h3 {
+        color: #333;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type="radio"] {
+        margin-right: 5px;
+      }
+      .results {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>習い事診断フォーム</h2>
+    <form id="combinedForm">
+      <!-- 気質診断 -->
+      <h3>気質診断</h3>
+      <label>自分からリーダーシップを取るのが得意ですか？</label>
+      <input type="radio" name="q1" value="はい" />はい <input type="radio" name="q1" value="いいえ" />いいえ
+      <br />
+      <label>計画を立てるのが得意ですか？</label>
+      <input type="radio" name="q2" value="はい" />はい <input type="radio" name="q2" value="いいえ" />いいえ
+      <br />
+      <label>人と話すのが好きですか？</label>
+      <input type="radio" name="q3" value="はい" />はい <input type="radio" name="q3" value="いいえ" />いいえ
+      <br />
+      <label>細かい作業が得意ですか？</label>
+      <input type="radio" name="q4" value="はい" />はい <input type="radio" name="q4" value="いいえ" />いいえ
+      <br />
+      <label>新しいことに挑戦するのが好きですか？</label>
+      <input type="radio" name="q5" value="はい" />はい <input type="radio" name="q5" value="いいえ" />いいえ
+      <br />
+
+      <!-- 才能診断 -->
+      <h3>才能診断</h3>
+      <label>音楽に対して興味がありますか？</label>
+      <input type="radio" name="q21" value="はい" />はい <input type="radio" name="q21" value="いいえ" />いいえ
+      <br />
+      <label>数字や計算が得意ですか？</label>
+      <input type="radio" name="q22" value="はい" />はい <input type="radio" name="q22" value="いいえ" />いいえ
+      <br />
+      <label>文章を書くのが得意ですか？</label>
+      <input type="radio" name="q23" value="はい" />はい <input type="radio" name="q23" value="いいえ" />いいえ
+      <br />
+      <label>絵を描くのが得意ですか？</label>
+      <input type="radio" name="q24" value="はい" />はい <input type="radio" name="q24" value="いいえ" />いいえ
+      <br />
+      <label>手先が器用ですか？</label>
+      <input type="radio" name="q25" value="はい" />はい <input type="radio" name="q25" value="いいえ" />いいえ
+      <br />
+
+      <!-- 素質診断 -->
+      <h3>素質診断</h3>
+      <label>背が高いですか？</label>
+      <input type="radio" name="q41" value="はい" />はい <input type="radio" name="q41" value="いいえ" />いいえ
+      <br />
+      <label>体が大きいですか？</label>
+      <input type="radio" name="q42" value="はい" />はい <input type="radio" name="q42" value="いいえ" />いいえ
+      <br />
+      <label>手足が長いですか？</label>
+      <input type="radio" name="q43" value="はい" />はい <input type="radio" name="q43" value="いいえ" />いいえ
+      <br />
+      <label>腕力が強いですか？</label>
+      <input type="radio" name="q44" value="はい" />はい <input type="radio" name="q44" value="いいえ" />いいえ
+      <br />
+      <label>記憶力が良いですか？</label>
+      <input type="radio" name="q45" value="はい" />はい <input type="radio" name="q45" value="いいえ" />いいえ
+      <br />
+      <label>バランス感覚が良いですか？</label>
+      <input type="radio" name="q46" value="はい" />はい <input type="radio" name="q46" value="いいえ" />いいえ
+      <br />
+      <label>計算が得意ですか？</label>
+      <input type="radio" name="q47" value="はい" />はい <input type="radio" name="q47" value="いいえ" />いいえ
+      <br />
+
+      <input type="submit" value="最適な習い事を表示" />
+    </form>
+
+    <h2>診断結果</h2>
+    <div id="resultSummary" class="results"></div>
+
+    <script>
+      document.getElementById("combinedForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const answers = [];
+
+        // 気質診断の回答を収集
+        for (let i = 1; i <= 5; i++) {
+          const answer = document.querySelector(`input[name="q${i}"]:checked`);
+          answers.push(answer && answer.value === "はい");
+        }
+
+        // 才能診断の回答を収集
+        for (let i = 21; i <= 25; i++) {
+          const answer = document.querySelector(`input[name="q${i}"]:checked`);
+          answers.push(answer && answer.value === "はい");
+        }
+
+        // 素質診断の回答を収集
+        for (let i = 41; i <= 47; i++) {
+          const answer = document.querySelector(`input[name="q${i}"]:checked`);
+          answers.push(answer && answer.value === "はい");
+        }
+
+        const bestActivities = determineBestActivities(answers);
+        document.getElementById("resultSummary").innerHTML = generateResultSummary(bestActivities);
+      });
+
+      function determineBestActivities(answers) {
+        const activities = {
+          music: ["音楽教室", "ピアノレッスン"],
+          sports: ["サッカー", "バスケットボール"],
+          arts: ["絵画教室", "演劇教室"],
+          academics: ["数学塾", "科学クラブ"],
+        };
+
+        const [
+          leadership,
+          planning,
+          social,
+          detail,
+          challenge,
+          musicInterest,
+          mathSkill,
+          writingSkill,
+          drawingSkill,
+          dexterity,
+          tall,
+          big,
+          longLimbs,
+          armStrength,
+          memory,
+          balance,
+          fastCalculation,
+        ] = answers;
+
+        // 簡単なロジックで習い事を提案
+        if (musicInterest && (memory || dexterity)) {
+          return activities.music;
+        }
+        if (sports && (armStrength || balance)) {
+          return activities.sports;
+        }
+        if (drawingSkill && (detail || social)) {
+          return activities.arts;
+        }
+        if (mathSkill && (fastCalculation || planning)) {
+          return activities.academics;
+        }
+
+        return ["一般的な習い事"]; // デフォルトの提案
+      }
+
+      function generateResultSummary(activities) {
+        return `
+            <p><strong>おすすめの習い事:</strong> ${activities.join(", ")}</p>
+            `;
+      }
+    </script>
+  </body>
+</html>

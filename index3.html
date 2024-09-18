@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>素質診断</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2, h3 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>素質診断フォーム</h2>
+    <form id="aptitudeForm">
+        <h3>外見的素質</h3>
+        <label>背が高いですか？</label>
+        <input type="radio" name="q1" value="はい">はい
+        <input type="radio" name="q1" value="いいえ">いいえ
+        <br>
+        <label>体が大きいですか？</label>
+        <input type="radio" name="q2" value="はい">はい
+        <input type="radio" name="q2" value="いいえ">いいえ
+        <br>
+        <label>手足が長いですか？</label>
+        <input type="radio" name="q3" value="はい">はい
+        <input type="radio" name="q3" value="いいえ">いいえ
+        <br>
+        <label>首が長いですか？</label>
+        <input type="radio" name="q4" value="はい">はい
+        <input type="radio" name="q4" value="いいえ">いいえ
+        <br>
+        <label>スタイルが良いですか？</label>
+        <input type="radio" name="q5" value="はい">はい
+        <input type="radio" name="q5" value="いいえ">いいえ
+        <br>
+        <label>容姿端麗ですか？</label>
+        <input type="radio" name="q6" value="はい">はい
+        <input type="radio" name="q6" value="いいえ">いいえ
+        <br>
+        <label>目が大きいですか？</label>
+        <input type="radio" name="q7" value="はい">はい
+        <input type="radio" name="q7" value="いいえ">いいえ
+        <br>
+        <label>鼻筋が高いですか？</label>
+        <input type="radio" name="q8" value="はい">はい
+        <input type="radio" name="q8" value="いいえ">いいえ
+        <br>
+        <label>顔が小さいですか？</label>
+        <input type="radio" name="q9" value="はい">はい
+        <input type="radio" name="q9" value="いいえ">いいえ
+        <br>
+        <label>目立ちがはっきりしていますか？</label>
+        <input type="radio" name="q10" value="はい">はい
+        <input type="radio" name="q10" value="いいえ">いいえ
+        <br>
+        <label>美人ですか？</label>
+        <input type="radio" name="q11" value="はい">はい
+        <input type="radio" name="q11" value="いいえ">いいえ
+        <br>
+        <label>笑顔がかわいいですか？</label>
+        <input type="radio" name="q12" value="はい">はい
+        <input type="radio" name="q12" value="いいえ">いいえ
+        <br>
+        <label>手が大きいですか？</label>
+        <input type="radio" name="q13" value="はい">はい
+        <input type="radio" name="q13" value="いいえ">いいえ
+        <br>
+        <label>指が長いですか？</label>
+        <input type="radio" name="q14" value="はい">はい
+        <input type="radio" name="q14" value="いいえ">いいえ
+        <br>
+        <label>骨太ですか？</label>
+        <input type="radio" name="q15" value="はい">はい
+        <input type="radio" name="q15" value="いいえ">いいえ
+        <br>
+        <label>体格ががっちりしていますか？</label>
+        <input type="radio" name="q16" value="はい">はい
+        <input type="radio" name="q16" value="いいえ">いいえ
+        <br>
+        <label>肩幅が広いですか？</label>
+        <input type="radio" name="q17" value="はい">はい
+        <input type="radio" name="q17" value="いいえ">いいえ
+        <br>
+        <label>筋肉質ですか？</label>
+        <input type="radio" name="q18" value="はい">はい
+        <input type="radio" name="q18" value="いいえ">いいえ
+        <br>
+        <label>骨格が細いですか？</label>
+        <input type="radio" name="q19" value="はい">はい
+        <input type="radio" name="q19" value="いいえ">いいえ
+        <br>
+        <label>肌がきれいですか？</label>
+        <input type="radio" name="q20" value="はい">はい
+        <input type="radio" name="q20" value="いいえ">いいえ
+        <br>
+
+        <h3>身体的素質</h3>
+        <label>腕力が強いですか？</label>
+        <input type="radio" name="q21" value="はい">はい
+        <input type="radio" name="q21" value="いいえ">いいえ
+        <br>
+        <label>握力が強いですか？</label>
+        <input type="radio" name="q22" value="はい">はい
+        <input type="radio" name="q22" value="いいえ">いいえ
+        <br>
+        <label>肩が強いですか？</label>
+        <input type="radio" name="q23" value="はい">はい
+        <input type="radio" name="q23" value="いいえ">いいえ
+        <br>
+        <label>足腰が強いですか？</label>
+        <input type="radio" name="q24" value="はい">はい
+        <input type="radio" name="q24" value="いいえ">いいえ
+        <br>
+        <label>背筋力が強いですか？</label>
+        <input type="radio" name="q25" value="はい">はい
+        <input type="radio" name="q25" value="いいえ">いいえ
+        <br>
+        <label>バランス感覚が良いですか？</label>
+        <input type="radio" name="q26" value="はい">はい
+        <input type="radio" name="q26" value="いいえ">いいえ
+        <br>
+        <label>足が速いですか？</label>
+        <input type="radio" name="q27" value="はい">はい
+        <input type="radio" name="q27" value="いいえ">いいえ
+        <br>
+        <label>敏しょう性が高いですか？</label>
+        <input type="radio" name="q28" value="はい">はい
+        <input type="radio" name="q28" value="いいえ">いいえ
+        <br>
+        <label>瞬発力がありますか？</label>
+        <input type="radio" name="q29" value="はい">はい
+        <input type="radio" name="q29" value="いいえ">いいえ
+        <br>
+        <label>持久力がありますか？</label>
+        <input type="radio" name="q30" value="はい">はい
+        <input type="radio" name="q30" value="いいえ">いいえ
+        <br>
+        <label>ジャンプ力がありますか？</label>
+        <input type="radio" name="q31" value="はい">はい
+        <input type="radio" name="q31" value="いいえ">いいえ
+        <br>
+        <label>動体視力が良いですか？</label>
+        <input type="radio" name="q32" value="はい">はい
+        <input type="radio" name="q32" value="いいえ">いいえ
+        <br>
+        <label>ハンドアイコーディネーションが良いですか？</label>
+        <input type="radio" name="q33" value="はい">はい
+        <input type="radio" name="q33" value="いいえ">いいえ
+        <br>
+        <label>球感が良いですか？</label>
+        <input type="radio" name="q34" value="はい">はい
+        <input type="radio" name="q34" value="いいえ">いいえ
+        <br>
+        <label>手先が器用ですか？</label>
+        <input type="radio" name="q35" value="はい">はい
+        <input type="radio" name="q35" value="いいえ">いいえ
+        <br>
+        <label>左利きですか？</label>
+        <input type="radio" name="q36" value="はい">はい
+        <input type="radio" name="q36" value="いいえ">いいえ
+        <br>
+        <label>柔軟性が高いですか？</label>
+        <input type="radio" name="q37" value="はい">はい
+        <input type="radio" name="q37" value="いいえ">いいえ
+        <br>
+        <label>身体表現力が高いですか？</label>
+        <input type="radio" name="q38" value="はい">はい
+        <input type="radio" name="q38" value="いいえ">いいえ
+        <br>
+
+        <h3>頭脳的素質</h3>
+        <label>記憶力がずば抜けて良いですか？</label>
+        <input type="radio" name="q39" value="はい">はい
+        <input type="radio" name="q39" value="いいえ">いいえ
+        <br>
+        <label>集中力がずば抜けて高いですか？</label>
+        <input type="radio" name="q40" value="はい">はい
+        <input type="radio" name="q40" value="いいえ">いいえ
+        <br>
+        <label>理解力がずば抜けて高いですか？</label>
+        <input type="radio" name="q41" value="はい">はい
+        <input type="radio" name="q41" value="いいえ">いいえ
+        <br>
+        <label>言語発達がずば抜けて高いですか？</label>
+        <input type="radio" name="q42" value="はい">はい
+        <input type="radio" name="q42" value="いいえ">いいえ
+        <br>
+        <label>数字への興味がずば抜けて高いですか？</label>
+        <input type="radio" name="q43" value="はい">はい
+        <input type="radio" name="q43" value="いいえ">いいえ
+        <br>
+        <label>計算がずば抜けて早いですか？</label>
+        <input type="radio" name="q44" value="はい">はい
+        <input type="radio" name="q44" value="いいえ">いいえ
+        <br>
+        <label>パズルを解くのがずば抜けて早いですか？</label>
+        <input type="radio" name="q45" value="はい">はい
+        <input type="radio" name="q45" value="いいえ">いいえ
+        <br>
+        <label>空間認識力がずば抜けて高いですか？</label>
+        <input type="radio" name="q46" value="はい">はい
+        <input type="radio" name="q46" value="いいえ">いいえ
+        <br>
+        <label>知的好奇心がずば抜けて旺盛ですか？</label>
+        <input type="radio" name="q47" value="はい">はい
+        <input type="radio" name="q47" value="いいえ">いいえ
+        <br>
+
+        <input type="submit" value="診断結果を表示">
+    </form>
+
+    <h2>診断結果</h2>
+    <div id="aptitudeSummary" class="results"></div>
+
+    <script>
+        document.getElementById("aptitudeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const answers = [];
+
+            // 回答を収集
+            for (let i = 1; i <= 47; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                answers.push(answer && answer.value === "はい");
+            }
+
+            const scores = calculateAptitudeScores(answers);
+            document.getElementById("aptitudeSummary").innerHTML = generateAptitudeSummary(scores);
+        });
+
+        function calculateAptitudeScores(answers) {
+            // 外見的素質
+            const externalAppearance = {
+                "背が高い": answers[0],
+                "体が大きい": answers[1],
+                "手足が長い": answers[2],
+                "首が長い": answers[3],
+                "スタイルが良い": answers[4],
+                "容姿端麗": answers[5],
+                "目が大きい": answers[6],
+                "鼻筋が高い": answers[7],
+                "顔が小さい": answers[8],
+                "目立ちがはっきりしている": answers[9],
+                "美人": answers[10],
+                "笑顔がかわいい": answers[11],
+                "手が大きい": answers[12],
+                "指が長い": answers[13],
+                "骨太": answers[14],
+                "体格ががっちりしている": answers[15],
+                "肩幅が広い": answers[16],
+                "筋肉質": answers[17],
+                "骨格が細い": answers[18],
+                "肌がきれい": answers[19]
+            };
+            // 身体的素質
+            const physicalAbility = {
+                "腕力が強い": answers[20],
+                "握力が強い": answers[21],
+                "肩が強い": answers[22],
+                "足腰が強い": answers[23],
+                "背筋力が強い": answers[24],
+                "バランス感覚が良い": answers[25],
+                "足が速い": answers[26],
+                "敏しょう性が高い": answers[27],
+                "瞬発力がある": answers[28],
+                "持久力がある": answers[29],
+                "ジャンプ力がある": answers[30],
+                "動体視力が良い": answers[31],
+                "ハンドアイコーディネーションが良い": answers[32],
+                "球感が良い": answers[33],
+                "手先が器用": answers[34],
+                "左利き": answers[35],
+                "柔軟性が高い": answers[36],
+                "身体表現力が高い": answers[37]
+            };
+            // 頭脳的素質
+            const intellectualAbility = {
+                "記憶力がずば抜けて良い": answers[38],
+                "集中力がずば抜けて高い": answers[39],
+                "理解力がずば抜けて高い": answers[40],
+                "言語発達がずば抜けて高い": answers[41],
+                "数字への興味がずば抜けて高い": answers[42],
+                "計算がずば抜けて早い": answers[43],
+                "パズルを解くのがずば抜けて早い": answers[44],
+                "空間認識力がずば抜けて高い": answers[45],
+                "知的好奇心がずば抜けて旺盛": answers[46]
+            };
+            return { externalAppearance, physicalAbility, intellectualAbility };
+        }
+
+        function generateAptitudeSummary(scores) {
+            const externalAppearanceSummary = Object.entries(scores.externalAppearance)
+                .filter(([_, value]) => value)
+                .map(([key]) => key)
+                .join(", ");
+            const physicalAbilitySummary = Object.entries(scores.physicalAbility)
+                .filter(([_, value]) => value)
+                .map(([key]) => key)
+                .join(", ");
+            const intellectualAbilitySummary = Object.entries(scores.intellectualAbility)
+                .filter(([_, value]) => value)
+                .map(([key]) => key)
+                .join(", ");
+
+            return `
+            <p><strong>外見的素質</strong>: ${externalAppearanceSummary}</p>
+            <p><strong>身体的素質</strong>: ${physicalAbilitySummary}</p>
+            <p><strong>頭脳的素質</strong>: ${intellectualAbilitySummary}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
