@@ -203,3 +203,106 @@ form#lessonForm label {
   content: "🏅";
   margin-right: 10px;
 }
+/* 既存のスタイルを保持 */
+.question {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+.results {
+  margin-top: 20px;
+}
+
+/* 新しいスタイルの追加 */
+
+/* ラジオボタンとラベルを横並びに配置 */
+.radio-group, .question .radio-options {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* オプション間のスペース */
+  flex-wrap: wrap; /* 小さい画面でも折り返し可能に */
+}
+
+/* ラジオボタンのラベルをクリック可能にする */
+.radio-group label, .question .radio-options label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* ラジオボタンとラベルテキストの間のスペース */
+}
+
+/* ラジオボタンのスタイルを微調整 */
+input[type="radio"] {
+  transform: scale(1.2); /* ラジオボタンを少し大きくする */
+  cursor: pointer;
+}
+
+/* セクションタイトルのスタイル調整 */
+h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* フォーム全体のスタイル調整（オプション） */
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* 入力フィールドのスタイル調整 */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 送信ボタンのスタイル調整 */
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* 結果表示部分のスタイル調整 */
+.results ul {
+  list-style-type: none;
+  padding: 0;
+}
+.results li {
+  margin-bottom: 10px;
+}
+.score {
+  font-weight: bold;
+  color: #2E8B57;
+}
+.no-result {
+  color: red;
+  font-weight: bold;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  .radio-group, .question .radio-options {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
