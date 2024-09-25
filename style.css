@@ -40,7 +40,7 @@ form#lessonForm .radio-group {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  align-items: center;
+
 }
 
 /* ラジオボタンを非表示にしてカスタムスタイルを適用 */
