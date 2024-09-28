@@ -47,392 +47,368 @@
       <label for="childAge">年齢:</label>
       <input type="number" id="childAge" name="childAge" min="0" max="18" required>
 
-      <!-- 素質診断の質問（1～35問目） -->
-      <h3>外見的素質</h3>
-
-      <!-- 質問1 -->
-      <div class="question radio-options">
-        <label>1. 背が高いですか？</label>
-        <div class="radio-group">
-          <input id="q1-1" type="radio" name="q1" value="1" required />
-          <label for="q1-1">はい</label>
-          <input id="q1-2" type="radio" name="q1" value="0" />
-          <label for="q1-2">いいえ</label>
-        </div>
-      </div>
-      <!-- 質問2 -->
-      <div class="question">
-        <label>2. 体が大きいですか？</label>
-        <div class="radio-group">
-          <input id="q2-1" type="radio" name="q2" value="1" required />
-          <label for="q2-1">はい</label>
-          <input id="q2-2" type="radio" name="q2" value="0" />
-          <label for="q2-2">いいえ</label>
-        </div>
-      </div>
-      <!-- 質問3 -->
-      <div class="question">
-        <label>3. 手足が長いですか？</label>
-        <div class="radio-group">
-          <input id="q3-1" type="radio" name="q3" value="1" required />
-          <label for="q3-1">はい</label>
-          <input id="q3-2" type="radio" name="q3" value="0" />
-          <label for="q3-2">いいえ</label>
-        </div>
-      </div>
-      <!-- 質問4 -->
-      <div class="question radio-options">
-        <label>4. 首が長いですか？</label>
+      <section class="">
+        <!-- 素質診断の質問（1～35問目） -->
+        <h3>素質診断</h3>
+        <h4>外見的素質</h4>
+        <!-- 質問1 -->
+        <div class="question radio-options">
+          <label>1. 背が高いですか？</label>
           <div class="radio-group">
-          <input id="q4-1" type="radio" name="q4" value="1" required />
-          <label for="q4-1">はい</label>
-          <input id="q4-2" type="radio" name="q4" value="0" />
-          <label for="q4-2">いいえ</label>
+            <input id="q1-1" type="radio" name="q1" value="1" required />
+            <label for="q1-1">はい</label>
+            <input id="q1-2" type="radio" name="q1" value="0" />
+            <label for="q1-2">いいえ</label>
+          </div>
         </div>
-      </div>
-      <!-- 質問5 -->
-      <div class="question">
-        <label>5. 笑顔が魅力的ですか？</label>
-        <div class="radio-group">
-          <input id="q5-1" type="radio" name="q5" value="1" required />
-          <label for="q5-1">はい</label>
-          <input id="q5-2" type="radio" name="q5" value="0" />
-          <label for="q5-2">いいえ</label>
-        </div>
-      </div>
-     <!-- 質問6を修正 --> <!-- 質問6 -->
-      <div class="question">
-        <label>6. 指が長いですか？</label>
+        <!-- 質問2 -->
+        <div class="question">
+          <label>2. 体が大きいですか？</label>
           <div class="radio-group">
-          <input id="q6-1" type="radio" name="q6" value="1" required />
-          <label for="q6-1">はい</label>
-          <input id="q6-2" type="radio" name="q6" value="0" />
-          <label for="q6-2">いいえ</label>
+            <input id="q2-1" type="radio" name="q2" value="1" required />
+            <label for="q2-1">はい</label>
+            <input id="q2-2" type="radio" name="q2" value="0" />
+            <label for="q2-2">いいえ</label>
+          </div>
         </div>
-    </div>
-      <!-- 質問7 -->
-      <div class="question">
-        <label>7. 目が大きいですか？</label>
+        <!-- 質問3 -->
+        <div class="question">
+          <label>3. 手足が長いですか？</label>
+          <div class="radio-group">
+            <input id="q3-1" type="radio" name="q3" value="1" required />
+            <label for="q3-1">はい</label>
+            <input id="q3-2" type="radio" name="q3" value="0" />
+            <label for="q3-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問4 -->
+        <div class="question radio-options">
+          <label>4. 首が長いですか？</label>
             <div class="radio-group">
-        <input id="q7-1" type="radio" name="q7" value="1" required />
-        <label for="q7-1">はい</label>
-          <input id="q7-2" type="radio" name="q7" value="0" />
-          <label for="q7-2">いいえ</label>
+            <input id="q4-1" type="radio" name="q4" value="1" required />
+            <label for="q4-1">はい</label>
+            <input id="q4-2" type="radio" name="q4" value="0" />
+            <label for="q4-2">いいえ</label>
+          </div>
         </div>
-      </div>
-      <!-- 質問8 -->
-      <div class="question">
-        <label>8. 姿勢が良いですか？</label>
+        <!-- 質問5 -->
+        <div class="question">
+          <label>5. 笑顔が魅力的ですか？</label>
+          <div class="radio-group">
+            <input id="q5-1" type="radio" name="q5" value="1" required />
+            <label for="q5-1">はい</label>
+            <input id="q5-2" type="radio" name="q5" value="0" />
+            <label for="q5-2">いいえ</label>
+          </div>
+        </div>
+             <!-- 質問6を修正 --> <!-- 質問6 -->
+        <div class="question">
+          <label>6. 指が長いですか？</label>
             <div class="radio-group">
-          <input id="q8-1" type="radio" name="q8" value="1" required />
-          <label for="q8-1">はい</label>
-          <input id="q8-2" type="radio" name="q8" value="0" />
-          <label for="q8-2">いいえ</label>
+            <input id="q6-1" type="radio" name="q6" value="1" required />
+            <label for="q6-1">はい</label>
+            <input id="q6-2" type="radio" name="q6" value="0" />
+            <label for="q6-2">いいえ</label>
+          </div>
+            </div>
+        <!-- 質問7 -->
+        <div class="question">
+          <label>7. 目が大きいですか？</label>
+              <div class="radio-group">
+          <input id="q7-1" type="radio" name="q7" value="1" required />
+          <label for="q7-1">はい</label>
+            <input id="q7-2" type="radio" name="q7" value="0" />
+            <label for="q7-2">いいえ</label>
+          </div>
         </div>
-      </div>
-      <!-- 質問9 -->
-      <div class="question">
-        <label>9. 声がよく通りますか？</label>
-        <div class="radio-group">
-          <input id="q9-1" type="radio" name="q9" value="1" required />
-          <label for="q9-1">はい</label>
-          <input id="q9-2" type="radio" name="q9" value="0" />
-          <label for="q9-2">いいえ</label>
+        <!-- 質問8 -->
+        <div class="question">
+          <label>8. 姿勢が良いですか？</label>
+              <div class="radio-group">
+            <input id="q8-1" type="radio" name="q8" value="1" required />
+            <label for="q8-1">はい</label>
+            <input id="q8-2" type="radio" name="q8" value="0" />
+            <label for="q8-2">いいえ</label>
+          </div>
         </div>
-      </div>
-      <!-- 質問10 -->
-      <div class="question">
-        <label>10. 表情が豊かですか？</label>
-        <div class="radio-group">
-          <input id="q10-1" type="radio" name="q10" value="1" required />
-          <label for="q10-1">はい</label>
-          <input id="q10-2" type="radio" name="q10" value="0" />
-          <label for="q10-2">いいえ</label>
+        <!-- 質問9 -->
+        <div class="question">
+          <label>9. 声がよく通りますか？</label>
+          <div class="radio-group">
+            <input id="q9-1" type="radio" name="q9" value="1" required />
+            <label for="q9-1">はい</label>
+            <input id="q9-2" type="radio" name="q9" value="0" />
+            <label for="q9-2">いいえ</label>
+          </div>
         </div>
-      </div>
+        <!-- 質問10 -->
+        <div class="question">
+          <label>10. 表情が豊かですか？</label>
+          <div class="radio-group">
+            <input id="q10-1" type="radio" name="q10" value="1" required />
+            <label for="q10-1">はい</label>
+            <input id="q10-2" type="radio" name="q10" value="0" />
+            <label for="q10-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問11〜17削除 -->
+        <!-- 質問18〜33 (番号を11〜26に変更) -->
+        <h4>身体的素質</h4>
+        <!-- 質問11 (旧質問18) -->
+        <div class="question">
+          <label>1. バランス感覚が良いですか？</label>
+          <div class="radio-group">
+            <input id="q11-1" type="radio" name="q11" value="1" required />
+            <label for="q11-1">はい</label>
+            <input id="q11-2" type="radio" name="q11" value="0" />
+            <label for="q11-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問12 (旧質問19) -->
+        <div class="question">
+          <label>2. 反射神経が良いですか？</label>
+          <div class="radio-group">
+            <input id="q12-1" type="radio" name="q12" value="1" required />
+            <label for="q12-1">はい</label>
+            <input id="q12-2" type="radio" name="q12" value="0" />
+            <label for="q12-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問13 (旧質問20) -->
+        <div class="question">
+          <label>3. スタミナがありますか？</label>
+          <div class="radio-group">
+            <input id="q13-1" type="radio" name="q13" value="1" required />
+            <label for="q13-1">はい</label>
+            <input id="q13-2" type="radio" name="q13" value="0" />
+            <label for="q13-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問14 (旧質問21) -->
+        <div class="question">
+          <label>4. 柔軟性が高いですか？</label>
+          <div class="radio-group">
+            <input id="q14-1" type="radio" name="q14" value="1" required />
+            <label for="q14-1">はい</label>
+            <input id="q14-2" type="radio" name="q14" value="0" />
+            <label for="q14-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問15 (旧質問22) -->
+        <div class="question">
+          <label>5. 体のコントロールが上手ですか？</label>
+          <div class="radio-group">
+            <input id="q15-1" type="radio" name="q15" value="1" required />
+            <label for="q15-1">はい</label>
+            <input id="q15-2" type="radio" name="q15" value="0" />
+            <label for="q15-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問16 (旧質問23) -->
+        <div class="question">
+          <label>6. スポーツ全般が得意ですか？</label>
+          <div class="radio-group">
+            <input id="q16-1" type="radio" name="q16" value="1" required />
+            <label for="q16-1">はい</label>
+            <input id="q16-2" type="radio" name="q16" value="0" />
+            <label for="q16-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問17 (旧質問24) -->
+        <div class="question">
+          <label>7. チームワークを大切にしますか？</label>
+          <div class="radio-group">
+            <input id="q17-1" type="radio" name="q17" value="1" required />
+            <label for="q17-1">はい</label>
+            <input id="q17-2" type="radio" name="q17" value="0" />
+            <label for="q17-2">いいえ</label>
+          </div>
+        </div>
+        <!-- 質問18 (旧質問25) -->
+        <div class="question"> <label>8. 瞬発力がありますか？</label>
+          <div class="radio-group">
+            <input id="q18-1" type="radio" name="q18" value="1" required />
+            <label for="q18-1">はい</label>
+            <input id="q18-2" type="radio" name="q18" value="0" />
+            <label for="q18-2">いいえ</label>
+          </div>
+            </div>
+        <!-- 質問19 (旧質問26) -->
+        <div class="question">
+          <label>9. ダンスのリズムを感じ取れますか？</label>
+          <div class="radio-group">
+            <input id="q19-1" type="radio" name="q19" value="1" required />
+            <label for="q19-1">はい</label>
+            <input id="q19-2" type="radio" name="q19" value="0" />
+            <label for="q19-2">いいえ</label>
+          </div>
+        </div>
 
-      <!-- 質問11〜17削除 -->
-
-      <!-- 質問18〜33 (番号を11〜26に変更) -->
-      <h3>身体的素質</h3>
-
-      <!-- 質問11 (旧質問18) -->
-      <div class="question">
-        <label>1. バランス感覚が良いですか？</label>
-        <div class="radio-group">
-          <input id="q11-1" type="radio" name="q11" value="1" required />
-          <label for="q11-1">はい</label>
-          <input id="q11-2" type="radio" name="q11" value="0" />
-          <label for="q11-2">いいえ</label>
+             <!-- 質問20を修正 --> <!-- 質問20 -->
+         <div class="question">
+          <label>10. 細かい作業が得意ですか？</label>
+          <div class="radio-group">
+            <input id="q20-1" type="radio" name="q20" value="1" required />
+            <label for="q20-1">はい</label>
+            <input id="q20-2" type="radio" name="q20" value="0" />
+            <label for="q20-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問12 (旧質問19) -->
-      <div class="question">
-        <label>2. 反射神経が良いですか？</label>
-        <div class="radio-group">
-          <input id="q12-1" type="radio" name="q12" value="1" required />
-          <label for="q12-1">はい</label>
-          <input id="q12-2" type="radio" name="q12" value="0" />
-          <label for="q12-2">いいえ</label>
+        <!-- 質問21 (旧質問28) -->
+        <div class="question">
+          <label>11. 機械や道具を使うのが得意ですか？</label>
+          <div class="radio-group">
+            <input id="q21-1" type="radio" name="q21" value="1" required />
+            <label for="q21-1">はい</label>
+            <input id="q21-2" type="radio" name="q21" value="0" />
+            <label for="q21-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問13 (旧質問20) -->
-      <div class="question">
-        <label>3. スタミナがありますか？</label>
-        <div class="radio-group">
-          <input id="q13-1" type="radio" name="q13" value="1" required />
-          <label for="q13-1">はい</label>
-          <input id="q13-2" type="radio" name="q13" value="0" />
-          <label for="q13-2">いいえ</label>
+        <!-- 質問22 (旧質問29) -->
+        <div class="question">
+          <label>12. 音感が良いですか？</label>
+          <div class="radio-group">
+            <input id="q22-1" type="radio" name="q22" value="1" required />
+            <label for="q22-1">はい</label>
+            <input id="q22-2" type="radio" name="q22" value="0" />
+            <label for="q22-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問14 (旧質問21) -->
-      <div class="question">
-        <label>4. 柔軟性が高いですか？</label>
-        <div class="radio-group">
-          <input id="q14-1" type="radio" name="q14" value="1" required />
-          <label for="q14-1">はい</label>
-          <input id="q14-2" type="radio" name="q14" value="0" />
-          <label for="q14-2">いいえ</label>
+        <!-- 質問23 (旧質問30) -->
+        <div class="question">
+          <label>13. 色彩感覚がありますか？</label>
+          <div class="radio-group">
+            <input id="q23-1" type="radio" name="q23" value="1" required />
+            <label for="q23-1">はい</label>
+            <input id="q23-2" type="radio" name="q23" value="0" />
+            <label for="q23-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問15 (旧質問22) -->
-      <div class="question">
-        <label>5. 体のコントロールが上手ですか？</label>
-        <div class="radio-group">
-          <input id="q15-1" type="radio" name="q15" value="1" required />
-          <label for="q15-1">はい</label>
-          <input id="q15-2" type="radio" name="q15" value="0" />
-          <label for="q15-2">いいえ</label>
+        <!-- 質問24 (旧質問31) -->
+        <div class="question">
+          <label>14. 創造力が豊かですか？</label>
+          <div class="radio-group">
+            <input id="q24-1" type="radio" name="q24" value="1" required />
+            <label for="q24-1">はい</label>
+            <input id="q24-2" type="radio" name="q24" value="0" />
+            <label for="q24-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問16 (旧質問23) -->
-      <div class="question">
-        <label>6. スポーツ全般が得意ですか？</label>
-        <div class="radio-group">
-          <input id="q16-1" type="radio" name="q16" value="1" required />
-          <label for="q16-1">はい</label>
-          <input id="q16-2" type="radio" name="q16" value="0" />
-          <label for="q16-2">いいえ</label>
+        <!-- 質問25 (旧質問32) -->
+        <div class="question">
+          <label>15. 表現力がありますか？</label>
+          <div class="radio-group">
+            <input id="q25-1" type="radio" name="q25" value="1" required />
+            <label for="q25-1">はい</label>
+            <input id="q25-2" type="radio" name="q25" value="0" />
+            <label for="q25-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問17 (旧質問24) -->
-      <div class="question">
-        <label>7. チームワークを大切にしますか？</label>
-        <div class="radio-group">
-          <input id="q17-1" type="radio" name="q17" value="1" required />
-          <label for="q17-1">はい</label>
-          <input id="q17-2" type="radio" name="q17" value="0" />
-          <label for="q17-2">いいえ</label>
+        <!-- 質問26 (旧質問33) -->
+        <div class="question">
+          <label>16. コミュニケーション能力が高いですか？</label>
+          <div class="radio-group">
+            <input id="q26-1" type="radio" name="q26" value="1" required />
+            <label for="q26-1">はい</label>
+            <input id="q26-2" type="radio" name="q26" value="0" />
+            <label for="q26-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問18 (旧質問25) -->
-      <div class="question"> <label>8. 瞬発力がありますか？</label>
-        <div class="radio-group">
-          <input id="q18-1" type="radio" name="q18" value="1" required />
-          <label for="q18-1">はい</label>
-          <input id="q18-2" type="radio" name="q18" value="0" />
-          <label for="q18-2">いいえ</label>
+        <!-- 質問34〜38削除 -->
+        <!-- 頭脳的素質の質問（27～35問目） -->
+        <h4>頭脳的素質</h4>
+        <!-- 質問27 (旧質問39) -->
+        <div class="question">
+          <label>1. 記憶力がずば抜けて良いですか？</label>
+          <div class="radio-group">
+            <input id="q27-1" type="radio" name="q27" value="1" required />
+            <label for="q27-1">はい</label>
+            <input id="q27-2" type="radio" name="q27" value="0" />
+            <label for="q27-2">いいえ</label>
+          </div>
         </div>
-    </div>
-      <!-- 質問19 (旧質問26) -->
-      <div class="question">
-        <label>9. ダンスのリズムを感じ取れますか？</label>
-        <div class="radio-group">
-          <input id="q19-1" type="radio" name="q19" value="1" required />
-          <label for="q19-1">はい</label>
-          <input id="q19-2" type="radio" name="q19" value="0" />
-          <label for="q19-2">いいえ</label>
+        <!-- 質問28 (旧質問40) -->
+        <div class="question">
+          <label>2. 集中力がずば抜けて高いですか？</label>
+          <div class="radio-group">
+            <input id="q28-1" type="radio" name="q28" value="1" required />
+            <label for="q28-1">はい</label>
+            <input id="q28-2" type="radio" name="q28" value="0" />
+            <label for="q28-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-     <!-- 質問20を修正 --> <!-- 質問20 -->
-       <div class="question">
-        <label>10. 細かい作業が得意ですか？</label>
-        <div class="radio-group">
-          <input id="q20-1" type="radio" name="q20" value="1" required />
-          <label for="q20-1">はい</label>
-          <input id="q20-2" type="radio" name="q20" value="0" />
-          <label for="q20-2">いいえ</label>
+        <!-- 質問29 (旧質問41) -->
+        <div class="question">
+          <label>3. 物事を論理的に考えるのが得意ですか？</label>
+          <div class="radio-group">
+            <input id="q29-1" type="radio" name="q29" value="1" required />
+            <label for="q29-1">はい</label>
+            <input id="q29-2" type="radio" name="q29" value="0" />
+            <label for="q29-2">いいえ</label>
+          </div>
         </div>
-      </div>
-      <!-- 質問21 (旧質問28) -->
-      <div class="question">
-        <label>11. 機械や道具を使うのが得意ですか？</label>
-        <div class="radio-group">
-          <input id="q21-1" type="radio" name="q21" value="1" required />
-          <label for="q21-1">はい</label>
-          <input id="q21-2" type="radio" name="q21" value="0" />
-          <label for="q21-2">いいえ</label>
+        <!-- 質問30 (旧質問42) -->
+        <div class="question">
+          <label>4. 数学が得意ですか？</label>
+          <div class="radio-group">
+            <input id="q30-1" type="radio" name="q30" value="1" required />
+            <label for="q30-1">はい</label>
+            <input id="q30-2" type="radio" name="q30" value="0" />
+            <label for="q30-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問22 (旧質問29) -->
-      <div class="question">
-        <label>12. 音感が良いですか？</label>
-        <div class="radio-group">
-          <input id="q22-1" type="radio" name="q22" value="1" required />
-          <label for="q22-1">はい</label>
-          <input id="q22-2" type="radio" name="q22" value="0" />
-          <label for="q22-2">いいえ</label>
+        <!-- 質問31 (旧質問43) -->
+        <div class="question">
+          <label>5. 科学に興味がありますか？</label>
+          <div class="radio-group">
+            <input id="q31-1" type="radio" name="q31" value="1" required />
+            <label for="q31-1">はい</label>
+            <input id="q31-2" type="radio" name="q31" value="0" />
+            <label for="q31-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問23 (旧質問30) -->
-      <div class="question">
-        <label>13. 色彩感覚がありますか？</label>
-        <div class="radio-group">
-          <input id="q23-1" type="radio" name="q23" value="1" required />
-          <label for="q23-1">はい</label>
-          <input id="q23-2" type="radio" name="q23" value="0" />
-          <label for="q23-2">いいえ</label>
+        <!-- 質問32 (旧質問44) -->
+        <!-- 質問32を修正 --> <!-- 質問32 -->
+         <div class="question">
+          <label>6. パズルや謎解きを解くのが得意ですか？</label>
+          <div class="radio-group">
+            <input id="q32-1" type="radio" name="q32" value="1" required />
+            <label for="q32-1">はい</label>
+            <input id="q32-2" type="radio" name="q32" value="0" />
+            <label for="q32-2">いいえ</label>
+          </div>
+         </div>
+        <!-- 質問33 (旧質問45) -->
+        <div class="question">
+          <label>7. プログラミングやロボットに興味がありますか？</label>
+          <div class="radio-group">
+            <input id="q33-1" type="radio" name="q33" value="1" required />
+            <label for="q33-1">はい</label>
+            <input id="q33-2" type="radio" name="q33" value="0" />
+            <label for="q33-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問24 (旧質問31) -->
-      <div class="question">
-        <label>14. 創造力が豊かですか？</label>
-        <div class="radio-group">
-          <input id="q24-1" type="radio" name="q24" value="1" required />
-          <label for="q24-1">はい</label>
-          <input id="q24-2" type="radio" name="q24" value="0" />
-          <label for="q24-2">いいえ</label>
+        <!-- 質問34 (旧質問46) -->
+        <div class="question">
+          <label>8. 読書が好きですか？</label>
+          <div class="radio-group">
+            <input id="q34-1" type="radio" name="q34" value="1" required />
+            <label for="q34-1">はい</label>
+            <input id="q34-2" type="radio" name="q34" value="0" />
+            <label for="q34-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問25 (旧質問32) -->
-      <div class="question">
-        <label>15. 表現力がありますか？</label>
-        <div class="radio-group">
-          <input id="q25-1" type="radio" name="q25" value="1" required />
-          <label for="q25-1">はい</label>
-          <input id="q25-2" type="radio" name="q25" value="0" />
-          <label for="q25-2">いいえ</label>
+        <!-- 質問35 (旧質問47) -->
+        <div class="question">
+          <label>9. 言葉の表現が得意ですか？</label>
+          <div class="radio-group">
+            <input id="q35-1" type="radio" name="q35" value="1" required />
+            <label for="q35-1">はい</label>
+            <input id="q35-2" type="radio" name="q35" value="0" />
+            <label for="q35-2">いいえ</label>
+          </div>
         </div>
-      </div>
-
-      <!-- 質問26 (旧質問33) -->
-      <div class="question">
-        <label>16. コミュニケーション能力が高いですか？</label>
-        <div class="radio-group">
-          <input id="q26-1" type="radio" name="q26" value="1" required />
-          <label for="q26-1">はい</label>
-          <input id="q26-2" type="radio" name="q26" value="0" />
-          <label for="q26-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問34〜38削除 -->
-
-      <!-- 頭脳的素質の質問（27～35問目） -->
-      <h3>頭脳的素質</h3>
-
-      <!-- 質問27 (旧質問39) -->
-      <div class="question">
-        <label>1. 記憶力がずば抜けて良いですか？</label>
-        <div class="radio-group">
-          <input id="q27-1" type="radio" name="q27" value="1" required />
-          <label for="q27-1">はい</label>
-          <input id="q27-2" type="radio" name="q27" value="0" />
-          <label for="q27-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問28 (旧質問40) -->
-      <div class="question">
-        <label>2. 集中力がずば抜けて高いですか？</label>
-        <div class="radio-group">
-          <input id="q28-1" type="radio" name="q28" value="1" required />
-          <label for="q28-1">はい</label>
-          <input id="q28-2" type="radio" name="q28" value="0" />
-          <label for="q28-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問29 (旧質問41) -->
-      <div class="question">
-        <label>3. 物事を論理的に考えるのが得意ですか？</label>
-        <div class="radio-group">
-          <input id="q29-1" type="radio" name="q29" value="1" required />
-          <label for="q29-1">はい</label>
-          <input id="q29-2" type="radio" name="q29" value="0" />
-          <label for="q29-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問30 (旧質問42) -->
-      <div class="question">
-        <label>4. 数学が得意ですか？</label>
-        <div class="radio-group">
-          <input id="q30-1" type="radio" name="q30" value="1" required />
-          <label for="q30-1">はい</label>
-          <input id="q30-2" type="radio" name="q30" value="0" />
-          <label for="q30-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問31 (旧質問43) -->
-      <div class="question">
-        <label>5. 科学に興味がありますか？</label>
-        <div class="radio-group">
-          <input id="q31-1" type="radio" name="q31" value="1" required />
-          <label for="q31-1">はい</label>
-          <input id="q31-2" type="radio" name="q31" value="0" />
-          <label for="q31-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問32 (旧質問44) -->
-      <!-- 質問32を修正 --> <!-- 質問32 -->
-       <div class="question">
-        <label>6. パズルや謎解きを解くのが得意ですか？</label>
-        <div class="radio-group">
-          <input id="q32-1" type="radio" name="q32" value="1" required />
-          <label for="q32-1">はい</label>
-          <input id="q32-2" type="radio" name="q32" value="0" />
-          <label for="q32-2">いいえ</label>
-        </div>
-       </div>
-
-      <!-- 質問33 (旧質問45) -->
-      <div class="question">
-        <label>7. プログラミングやロボットに興味がありますか？</label>
-        <div class="radio-group">
-          <input id="q33-1" type="radio" name="q33" value="1" required />
-          <label for="q33-1">はい</label>
-          <input id="q33-2" type="radio" name="q33" value="0" />
-          <label for="q33-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問34 (旧質問46) -->
-      <div class="question">
-        <label>8. 読書が好きですか？</label>
-        <div class="radio-group">
-          <input id="q34-1" type="radio" name="q34" value="1" required />
-          <label for="q34-1">はい</label>
-          <input id="q34-2" type="radio" name="q34" value="0" />
-          <label for="q34-2">いいえ</label>
-        </div>
-      </div>
-
-      <!-- 質問35 (旧質問47) -->
-      <div class="question">
-        <label>9. 言葉の表現が得意ですか？</label>
-        <div class="radio-group">
-          <input id="q35-1" type="radio" name="q35" value="1" required />
-          <label for="q35-1">はい</label>
-          <input id="q35-2" type="radio" name="q35" value="0" />
-          <label for="q35-2">いいえ</label>
-        </div>
-      </div>
+      </section>
 
       <!-- 気質診断の質問（36～45問目） -->
       <h3>気質診断</h3>
@@ -877,13 +853,60 @@
       <input type="submit" value="診断結果を表示" />
     </form>
 
-    <h2>おすすめの習い事</h2>
-    <div id="lessonRecommendation" class="results"></div>
+
+    <div id="lessonRecommendation" class="results">
+
+    </div>
     <script>
 // フォームの送信イベントのリスナー
 document.getElementById("lessonForm").addEventListener("submit", function (event) {
   event.preventDefault();
-  const answers = [];
+    const answers = [];
+  const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
+  // 素質診断の質問をカテゴリにマッピング
+  const questionToCategory = {
+    // 外見的素質
+    1: "高身長",
+    2: "高骨格がしっかりしている",
+    3: "高手足が長い",
+    4: "高首が長い",
+    5: "高笑顔が魅力的",
+    6: "高指が長い",
+    7: "高目が大きい",
+    8: "高姿勢が良い",
+    9: "高声がよく通る",
+    10: "高表情が豊か",
+
+    // 身体的素質
+    11: "高バランス感覚が良い",
+    12: "高反射神経が良い",
+    13: "高スタミナがある",
+    14: "高柔軟性が高い",
+    15: "高体のコントロールが上手",
+    16: "高スポーツ全般が得意",
+    17: "高チームワークを大切にする",
+    18: "高瞬発力がある",
+    19: "高リズム感がある",
+    20: "高細かい作業が得意",
+    21: "高機械や道具を使うのが得意",
+    22: "高音感が良い",
+    23: "高色彩感覚がある",
+    24: "高創造力が豊か",
+    25: "高表現力がある",
+    26: "高コミュニケーション能力が高い",
+
+    // 頭脳的素質
+    27: "高記憶力がずば抜けて良い",
+    28: "高集中力がずば抜けて高い",
+    29: "高論理的思考が得意",
+    30: "高数学が得意",
+    31: "高科学に興味がある",
+    32: "高パズルや謎解きが得意",
+    33: "高プログラミングやロボットに興味がある",
+    34: "高読書が好き",
+    35: "高言葉の表現が得意",
+  };
+
 
   // お子様の情報を取得
   const childName = document.getElementById("childName").value.trim();
@@ -896,15 +919,22 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
     return;
   }
 
-  // 素質診断の回答（1～35問目）
+   // 素質診断の回答（1～35問目）
   for (let i = 1; i <= 35; i++) {
     const answer = document.querySelector(`input[name="q${i}"]:checked`);
     if (!answer) {
       alert("すべての素質診断の質問に回答してください。");
       return;
     }
-    answers.push(parseInt(answer.value));
+    const answerValue = parseInt(answer.value);
+    answers.push(answerValue);
+
+    // 「はい」と答えた質問のカテゴリを収集
+    if (answerValue === 1 && questionToCategory[i]) {
+      aptitudeCategories.add(questionToCategory[i]);
+    }
   }
+
 
   // 気質診断の回答（36～45問目）
   for (let i = 36; i <= 45; i++) {
@@ -938,8 +968,19 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
   // 才能評価を生成
   const talentEvaluation = generateTalentEvaluation(scores);
 
-  // 結果を表示
-  document.getElementById("lessonRecommendation").innerHTML = recommendations + temperamentEvaluation + talentEvaluation;
+    // 総合評価を生成
+  const overallEvaluation = generateOverallEvaluation(scores, aptitudeCategories, childName);
+
+   // 素質評価をシンプルに表示
+  let aptitudeEvaluation = "<h3>素質の評価</h3><ul>";
+  aptitudeCategories.forEach((category) => {
+    aptitudeEvaluation  += `<li>${category}</li>`;
+  });
+  aptitudeEvaluation += "</ul>";
+
+// 結果を表示
+document.getElementById("lessonRecommendation").innerHTML =
+  overallEvaluation + recommendations + temperamentEvaluation + talentEvaluation + aptitudeEvaluation;
 });
 
 // スコアを計算する関数
@@ -1463,14 +1504,67 @@ function generateLessonRecommendations(scores, childName, childGender, childAge)
   const topLessons = recommendedLessons.slice(0, 20);
 
   // 結果を生成
-  let result = `<p><strong>${childName}さん（${childAge}歳、${childGender}）におすすめの習い事:</strong></p><ul>`;
-  topLessons.forEach((lesson) => {
+  let result = `<h2>おすすめの習い事</h2><p><strong>${childName}さん（${childAge}歳、${childGender}）におすすめの習い事:</strong></p><ol>`;
+  topLessons.forEach((lesson, index) => {
     const aptitudePercentage = Math.round(lesson.score * 100);
     result += `<li>${lesson.name}: 適性度 <span class="score">${aptitudePercentage}%</span></li>`;
   });
-  result += `</ul>`;
+  result += `</ol>`;
 
   return result;
+}
+// トップの才能を取得する関数
+function getTopTalents(talentScores) {
+  const sortedTalents = Object.entries(talentScores)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 2); // 上位2つの才能を取得
+
+  return sortedTalents.map((talent) => talent[0]);
+}
+// 総合評価を生成する関数
+function generateOverallEvaluation(scores, aptitudeCategories, childName) {
+  const topTemperament = getTopTemperament(scores.traitScores);
+  const topTalents = getTopTalents(scores.talentScores);
+
+  // 素質を文字列に変換
+  const aptitudes = Array.from(aptitudeCategories).join('、');
+
+  // 気質を取得
+  const temperamentDescription = topTemperament.description;
+
+  // 才能を取得
+  const talents = topTalents.join('、');
+
+  // 総合評価の文章を生成
+  const evaluation = `
+    <h2>${childName}さんの総合評価</h2>
+    <p>${childName}さんは、${aptitudes}といった素質があり、${temperamentDescription}気質を持っています。また、${talents}の才能があります。これらの特徴から、これらの習い事が向いていると考えられます。</p>
+  `;
+
+  return evaluation;
+}
+
+// 気質のトップを取得する関数
+function getTopTemperament(traitScores) {
+  const temperamentDescriptions = {
+    "天才気質": "新しいことに対して強い好奇心を持つ",
+    "研究者気質": "非常に勤勉で深い集中力を持つ",
+    "商人気質": "感情が安定しておりストレスに強い",
+    "パフォーマー気質": "外向的で社交的",
+    "共感者気質": "思いやりがあり他人に対して親切",
+    "気質のまとめ": "バランスの取れた性格を持つ",
+  };
+
+  const temperamentScores = calculateTemperamentScores(traitScores);
+
+  const highestTemperament = Object.keys(temperamentScores).reduce((a, b) =>
+    temperamentScores[a] > temperamentScores[b] ? a : b
+  );
+
+  return {
+    type: highestTemperament,
+    description: temperamentDescriptions[highestTemperament],
+  };
 }
 
 // スコアを計算する関数（calculateLessonScore）
