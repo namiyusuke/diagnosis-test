@@ -244,9 +244,9 @@
           </div>
         </div>
 
-             <!-- 質問20を修正 --> <!-- 質問20 -->
-         <div class="question">
-          <label>10. 細かい作業が得意ですか？</label>
+        <!-- 質問20 -->
+        <div class="question">
+          <label>10. お子様は力が強いですか？</label>
           <div class="radio-group">
             <input id="q20-1" type="radio" name="q20" value="1" required />
             <label for="q20-1">はい</label>
@@ -573,9 +573,9 @@
         </select>
       </div>
 
-      <!-- 質問48 (旧質問60) -->
+          <!-- 質問48 -->
       <div class="question">
-        <p>3. お子様は数学的な問題を解くのが得意ですか？（0～5で評価）</p>
+        <p>3. お子様は複雑な情報を整理するのが得意ですか？（0～5で評価）</p>
         <select id="q48" name="q48" required>
           <option value="">選択してください</option>
           <option value="1">1（まったく当てはまらない）</option>
@@ -835,18 +835,18 @@
           </select>
         </div>
 
-      <!-- 質問69 (旧質問81) -->
-      <div class="question">
-        <p>22. お子様はチームで活動するのが好きですか？（0～5で評価）</p>
-        <select id="q68" name="q68" required>
-          <option value="">選択してください</option>
-          <option value="1">1（まったく当てはまらない）</option>
-          <option value="2">2（やや当てはまらない）</option>
-          <option value="3">3（どちらともいえない）</option>
-          <option value="4">4（やや当てはまる）</option>
-          <option value="5">5（非常に当てはまる）</option>
-        </select>
-      </div>
+              <!-- 質問68 -->
+        <div class="question">
+          <p>22. お子様は新しい友達を作るのが得意ですか？（0～5で評価）</p>
+          <select id="q68" name="q68" required>
+            <option value="">選択してください</option>
+            <option value="1">1（まったく当てはまらない）</option>
+            <option value="2">2（やや当てはまらない）</option>
+            <option value="3">3（どちらともいえない）</option>
+            <option value="4">4（やや当てはまる）</option>
+            <option value="5">5（非常に当てはまる）</option>
+          </select>
+        </div>
 
       <!-- 以降の質問は削除済みまたは重複なし -->
 
@@ -864,48 +864,50 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
     const answers = [];
   const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
   // 素質診断の質問をカテゴリにマッピング
+    // 素質診断の質問をカテゴリにマッピング
   const questionToCategory = {
     // 外見的素質
-    1: "高身長",
-    2: "高骨格がしっかりしている",
-    3: "高手足が長い",
-    4: "高首が長い",
-    5: "高笑顔が魅力的",
-    6: "高指が長い",
-    7: "高目が大きい",
-    8: "高姿勢が良い",
-    9: "高声がよく通る",
-    10: "高表情が豊か",
+    1: "背が高い",
+    2: "体が大きい",
+    3: "手足が長い",
+    4: "首が長い",
+    5: "笑顔が魅力的",
+    6: "指が長い",
+    7: "目が大きい",
+    8: "姿勢が良い",
+    9: "声がよく通る",
+    10: "表情が豊か",
 
     // 身体的素質
-    11: "高バランス感覚が良い",
-    12: "高反射神経が良い",
-    13: "高スタミナがある",
-    14: "高柔軟性が高い",
-    15: "高体のコントロールが上手",
-    16: "高スポーツ全般が得意",
-    17: "高チームワークを大切にする",
-    18: "高瞬発力がある",
-    19: "高リズム感がある",
-    20: "高細かい作業が得意",
-    21: "高機械や道具を使うのが得意",
-    22: "高音感が良い",
-    23: "高色彩感覚がある",
-    24: "高創造力が豊か",
-    25: "高表現力がある",
-    26: "高コミュニケーション能力が高い",
+    11: "バランス感覚が良い",
+    12: "反射神経が良い",
+    13: "スタミナがある",
+    14: "柔軟性が高い",
+    15: "体のコントロールが上手",
+    16: "スポーツ全般が得意",
+    17: "チームワークを大切にする",
+    18: "瞬発力がある",
+    19: "リズム感がある",
+    20: "力が強い",
+    21: "機械や道具を使うのが得意",
+    22: "音感が良い",
+    23: "色彩感覚がある",
+    24: "創造力が豊か",
+    25: "表現力がある",
+    26: "コミュニケーション能力が高い",
 
     // 頭脳的素質
-    27: "高記憶力がずば抜けて良い",
-    28: "高集中力がずば抜けて高い",
-    29: "高論理的思考が得意",
-    30: "高数学が得意",
-    31: "高科学に興味がある",
-    32: "高パズルや謎解きが得意",
-    33: "高プログラミングやロボットに興味がある",
-    34: "高読書が好き",
-    35: "高言葉の表現が得意",
+    27: "記憶力がずば抜けて良い",
+    28: "集中力がずば抜けて高い",
+    29: "論理的思考が得意",
+    30: "数学が得意",
+    31: "科学に興味がある",
+    32: "パズルや謎解きが得意",
+    33: "プログラミングやロボットに興味がある",
+    34: "読書が好き",
+    35: "言葉の表現が得意",
   };
+
 
 
   // お子様の情報を取得
@@ -946,8 +948,8 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
     answers.push(answer);
   }
 
-  // 才能診断の回答（46～67問目）
-  for (let i = 46; i <= 67; i++) {
+   // 才能診断の回答（46～68問目）
+  for (let i = 46; i <= 68; i++) {
     const answer = parseInt(document.getElementById(`q${i}`).value);
     if (isNaN(answer) || answer < 1 || answer > 5) {
       alert(`質問${i}に1～5の数値を選択してください。`);
@@ -1075,14 +1077,13 @@ function calculateTraitScores(traitAnswers) {
 
 // 才能診断のスコア計算関数
 function calculateTalentScores(talentAnswers, aptitudeAnswers) {
-  const talents = {
+ const talents = {
     "STEM的才能": [0, 1, 2, 3],
     "言語的才能": [4, 15],
-    "運動的才能": [16, 17, 18, 19],
+    "運動的才能": [16, 17, 18, 19, 21], // 質問67を追加
     "音楽的才能": [8, 9, 10, 11],
     "アート的才能": [12, 13],
   };
-
   const talentScores = {};
 
   for (let talent in talents) {
@@ -1108,71 +1109,71 @@ function sumAnswers(answers, indices) {
   });
   return total;
 }
-
 function calculateFineMotorSkills(talentAnswers) {
-  const indices = [5, 6];
+  const indices = [5, 6]; // 質問51, 52
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateAuditorySensitivity(talentAnswers) {
-  const indices = [7];
+  const indices = [7]; // 質問53
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateRhythmSense(talentAnswers) {
-  const indices = [8, 9];
+  const indices = [8, 9]; // 質問54, 55
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateInnovation(talentAnswers) {
-  const indices = [11];
+  const indices = [11]; // 質問57
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculatePatience(talentAnswers) {
-  const indices = [12];
+  const indices = [12]; // 質問58
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateProblemSolving(talentAnswers) {
-  const indices = [0, 2];
+  const indices = [0, 2]; // 質問46, 48
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateAttentionToDetail(talentAnswers) {
-  const indices = [13];
+  const indices = [13]; // 質問59
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateLanguageAptitude(talentAnswers) {
-  const indices = [4, 15];
+  const indices = [4, 15]; // 質問50, 61
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateAgility(talentAnswers) {
-  const indices = [16];
+  const indices = [16]; // 質問62
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateEndurance(talentAnswers) {
-  const indices = [17];
+  const indices = [17]; // 質問63
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateHandEyeCoordination(talentAnswers) {
-  const indices = [18];
+  const indices = [18]; // 質問64
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateTeamSpirit(talentAnswers) {
-  const indices = [19, 21];
+  const indices = [19, 21]; // 質問65, 67
   return sumAnswers(talentAnswers, indices);
 }
 
 function calculateHeightAdvantage(aptitudeAnswers) {
-  const indices = [10];
+  const indices = [0]; // 質問1（背が高い）
   return sumAnswers(aptitudeAnswers, indices);
 }
+
 
 // レッスンのおすすめを生成する関数
 function generateLessonRecommendations(scores, childName, childGender, childAge) {
