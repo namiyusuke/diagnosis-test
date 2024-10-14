@@ -820,825 +820,691 @@
 
     </div>
    <script>
-  // フォームの送信イベントのリスナー
-  document.getElementById("lessonForm").addEventListener("submit", function (event) {
-    event.preventDefault();
-    const answers = [];
-    const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
+ // フォームの送信イベントのリスナー
+document.getElementById("lessonForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const answers = [];
+  const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
 
-    // 素質診断の質問をカテゴリにマッピング
-    const questionToCategory = {
-      // 外見的素質
-      1: "背が高い",
-      2: "体が大きい",
-      3: "手足が長い",
-      4: "首が長い",
-      5: "笑顔が魅力的",
-      6: "指が長い",
-      7: "目が大きい",
-      8: "姿勢が良い",
-      9: "声がよく通る",
-      10: "表情が豊か",
+  // 素質診断の質問をカテゴリにマッピング
+  const questionToCategory = {
+    // 外見的素質
+    1: "背が高い",
+    2: "体が大きい",
+    3: "手足が長い",
+    4: "首が長い",
+    5: "笑顔が魅力的",
+    6: "指が長い",
+    7: "目が大きい",
+    8: "姿勢が良い",
+    9: "声がよく通る",
+    10: "表情が豊か",
 
-      // 身体的素質
-      11: "バランス感覚が良い",
-      12: "反射神経が良い",
-      13: "スタミナがある",
-      14: "柔軟性が高い",
-      15: "スポーツ全般が得意",
-      16: "瞬発力がある",
-      17: "リズム感がある",
-      18: "力が強い",
-      19: "機械や道具を使うのが得意",
-      20: "音感が良い",
-      21: "色彩感覚がある",
-      22: "創造力が豊か",
-      23: "表現力がある",
-      24: "コミュニケーション能力が高い",
+    // 身体的素質
+    11: "バランス感覚が良い",
+    12: "反射神経が良い",
+    13: "スタミナがある",
+    14: "柔軟性が高い",
+    15: "スポーツ全般が得意",
+    16: "瞬発力がある",
+    17: "リズム感がある",
+    18: "力が強い",
+    19: "機械や道具を使うのが得意",
+    20: "音感が良い",
+    21: "色彩感覚がある",
+    22: "創造力が豊か",
+    23: "表現力がある",
+    24: "コミュニケーション能力が高い",
 
-      // 頭脳的素質
-      25: "記憶力がずば抜けて良い",
-      26: "集中力がずば抜けて高い",
-      27: "論理的思考が得意",
-      28: "数学が得意",
-      29: "科学に興味がある",
-      30: "パズルや謎解きが得意",
-      31: "プログラミングやロボットに興味がある",
-      32: "読書が好き",
-      33: "言葉の表現が得意",
-    };
+    // 頭脳的素質
+    25: "記憶力がずば抜けて良い",
+    26: "集中力がずば抜けて高い",
+    27: "論理的思考が得意",
+    28: "数学が得意",
+    29: "科学に興味がある",
+    30: "パズルや謎解きが得意",
+    31: "プログラミングやロボットに興味がある",
+    32: "読書が好き",
+    33: "言葉の表現が得意",
+  };
 
-    // お子様の情報を取得
-    const childName = document.getElementById("childName").value.trim();
-    const genderRadio = document.querySelector('input[name="gender"]:checked');
-    const childGender = genderRadio ? genderRadio.value : '';
-    const childAge = parseInt(document.getElementById("childAge").value);
+  // お子様の情報を取得
+  const childName = document.getElementById("childName").value.trim();
+  const genderRadio = document.querySelector('input[name="gender"]:checked');
+  const childGender = genderRadio ? genderRadio.value : '';
+  const childAge = parseInt(document.getElementById("childAge").value);
 
-    if (!childName || !childGender || isNaN(childAge)) {
-      alert("お子様の情報を正しく入力してください。");
+  if (!childName || !childGender || isNaN(childAge)) {
+    alert("お子様の情報を正しく入力してください。");
+    return;
+  }
+
+  // 素質診断の回答（1～33問目）
+  for (let i = 1; i <= 33; i++) {
+    const answer = document.querySelector(`input[name="q${i}"]:checked`);
+    if (!answer) {
+      alert("すべての素質診断の質問に回答してください。");
       return;
     }
+    const answerValue = parseInt(answer.value);
+    answers.push(answerValue);
 
-    // 素質診断の回答（1～33問目）
-    for (let i = 1; i <= 33; i++) {
-      const answer = document.querySelector(`input[name="q${i}"]:checked`);
-      if (!answer) {
-        alert("すべての素質診断の質問に回答してください。");
-        return;
-      }
-      const answerValue = parseInt(answer.value);
-      answers.push(answerValue);
-
-      // 「はい」と答えた質問のカテゴリを収集
-      if (answerValue === 1 && questionToCategory[i]) {
-        aptitudeCategories.add(questionToCategory[i]);
-      }
+    // 「はい」と答えた質問のカテゴリを収集
+    if (answerValue === 1 && questionToCategory[i]) {
+      aptitudeCategories.add(questionToCategory[i]);
     }
+  }
 
-    // 気質診断の回答（34～43問目）
-    for (let i = 34; i <= 43; i++) {
-      const answer = parseInt(document.getElementById(`q${i}`).value);
-      if (isNaN(answer) || answer < 1 || answer > 5) {
-        alert(`質問${i}に1～5の数値を選択してください。`);
-        return;
-      }
-      answers.push(answer);
+  // 気質診断の回答（34～43問目）
+  for (let i = 34; i <= 43; i++) {
+    const answer = parseInt(document.getElementById(`q${i}`).value);
+    if (isNaN(answer) || answer < 1 || answer > 5) {
+      alert(`質問${i}に1～5の数値を選択してください。`);
+      return;
     }
+    answers.push(answer);
+  }
 
-    // 才能診断の回答（44～65問目）
-    for (let i = 44; i <= 65; i++) {
-      const answer = parseInt(document.getElementById(`q${i}`).value);
-      if (isNaN(answer) || answer < 1 || answer > 5) {
-        alert(`質問${i}に1～5の数値を選択してください。`);
-        return;
-      }
-      answers.push(answer);
+  // 才能診断の回答（44～65問目）
+  for (let i = 44; i <= 65; i++) {
+    const answer = parseInt(document.getElementById(`q${i}`).value);
+    if (isNaN(answer) || answer < 1 || answer > 5) {
+      alert(`質問${i}に1～5の数値を選択してください。`);
+      return;
     }
+    answers.push(answer);
+  }
 
-    // スコアを計算
-    const scores = calculateScores(answers);
+  // スコアを計算
+  const scores = calculateScores(answers);
 
-    // レッスンのおすすめを生成
-    const recommendations = generateLessonRecommendations(scores, childName, childGender, childAge);
+  // レッスンのおすすめを生成
+  const recommendations = generateLessonRecommendations(scores, childName, childGender, childAge);
 
-    // 気質評価を生成
-    const temperamentEvaluation = generateTemperamentEvaluation(scores);
+  // 気質評価を生成
+  const temperamentEvaluation = generateTemperamentEvaluation(scores);
 
-    // 才能評価を生成
-    const talentEvaluation = generateTalentEvaluation(scores);
+  // 才能評価を生成
+  const talentEvaluation = generateTalentEvaluation(scores);
 
-    // 素質評価をシンプルに表示
-    let aptitudeEvaluation = "<h3>素質の評価</h3><ul>";
-    aptitudeCategories.forEach((category) => {
-      aptitudeEvaluation  += `<li>${category}</li>`;
-    });
-    aptitudeEvaluation += "</ul>";
-
-    // 結果を表示
-    document.getElementById("lessonRecommendation").innerHTML =
-     aptitudeEvaluation + temperamentEvaluation + talentEvaluation + recommendations ;
+  // 素質評価をシンプルに表示
+  let aptitudeEvaluation = "<h3>素質の評価</h3><ul>";
+  aptitudeCategories.forEach((category) => {
+    aptitudeEvaluation  += `<li>${category}</li>`;
   });
+  aptitudeEvaluation += "</ul>";
 
-  // スコアを計算する関数
-  function calculateScores(answers) {
-    // 素質診断の回答（1～33問目）
-    const aptitudeAnswers = answers.slice(0, 33);
+  // 結果を表示
+  document.getElementById("lessonRecommendation").innerHTML =
+    aptitudeEvaluation + temperamentEvaluation + talentEvaluation + recommendations;
+});
 
-    // 気質診断の回答（34～43問目）
-    const traitAnswers = answers.slice(33, 43);
+// スコアを計算する関数
+function calculateScores(answers) {
+  // 素質診断の回答（1～33問目）
+  const aptitudeAnswers = answers.slice(0, 33);
 
-    // 才能診断の回答（44～65問目）
-    const talentAnswers = answers.slice(43);
+  // 気質診断の回答（34～43問目）
+  const traitAnswers = answers.slice(33, 43);
 
-    // 素質診断のスコア計算
-    const aptitudeScores = calculateAptitudeScores(aptitudeAnswers);
+  // 才能診断の回答（44～65問目）
+  const talentAnswers = answers.slice(43);
 
-    // 気質診断のスコア計算
-    const traitScores = calculateTraitScores(traitAnswers);
+  // 素質診断のスコア計算
+  const aptitudeScores = calculateAptitudeScores(aptitudeAnswers);
 
-    // 才能診断のスコア計算
-    const talentScores = calculateTalentScores(talentAnswers, aptitudeAnswers);
+  // 気質診断のスコア計算
+  const traitScores = calculateTraitScores(traitAnswers);
 
-    // その他の才能・特性のスコア計算
-    const fineMotorSkills = calculateFineMotorSkills(talentAnswers);
-    const auditorySensitivity = calculateAuditorySensitivity(talentAnswers);
-    const rhythmSense = calculateRhythmSense(talentAnswers);
-    const innovation = calculateInnovation(talentAnswers);
-    const patience = calculatePatience(talentAnswers);
-    const problemSolving = calculateProblemSolving(talentAnswers);
-    const attentionToDetail = calculateAttentionToDetail(talentAnswers);
-    const languageAptitude = calculateLanguageAptitude(talentAnswers);
-    const agility = calculateAgility(talentAnswers);
-    const endurance = calculateEndurance(talentAnswers);
-    const handEyeCoordination = calculateHandEyeCoordination(talentAnswers);
-    const teamSpirit = calculateTeamSpirit(talentAnswers);
-    const heightAdvantage = calculateHeightAdvantage(aptitudeAnswers);
+  // 才能診断のスコア計算
+  const talentScores = calculateTalentScores(talentAnswers, aptitudeAnswers);
 
-    return {
-      aptitudeScores,
-      traitScores,
-      talentScores,
-      fineMotorSkills,
-      auditorySensitivity,
-      rhythmSense,
-      innovation,
-      patience,
-      problemSolving,
-      attentionToDetail,
-      languageAptitude,
-      agility,
-      endurance,
-      handEyeCoordination,
-      teamSpirit,
-      heightAdvantage,
-    };
-  }
+  // その他の才能・特性のスコア計算
+  const fineMotorSkills = calculateFineMotorSkills(talentAnswers);
+  const auditorySensitivity = calculateAuditorySensitivity(talentAnswers);
+  const rhythmSense = calculateRhythmSense(talentAnswers);
+  const innovation = calculateInnovation(talentAnswers);
+  const patience = calculatePatience(talentAnswers);
+  const problemSolving = calculateProblemSolving(talentAnswers);
+  const attentionToDetail = calculateAttentionToDetail(talentAnswers);
+  const languageAptitude = calculateLanguageAptitude(talentAnswers);
+  const agility = calculateAgility(talentAnswers);
+  const endurance = calculateEndurance(talentAnswers);
+  const handEyeCoordination = calculateHandEyeCoordination(talentAnswers);
+  const teamSpirit = calculateTeamSpirit(talentAnswers);
+  const heightAdvantage = calculateHeightAdvantage(aptitudeAnswers);
 
-  // 素質診断のスコア計算関数
-  function calculateAptitudeScores(aptitudeAnswers) {
-    const categories = {
-      "外見": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      "身体": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-      "頭脳": [24, 25, 26, 27, 28, 29, 30, 31, 32],
-    };
+  return {
+    aptitudeScores,
+    traitScores,
+    talentScores,
+    fineMotorSkills,
+    auditorySensitivity,
+    rhythmSense,
+    innovation,
+    patience,
+    problemSolving,
+    attentionToDetail,
+    languageAptitude,
+    agility,
+    endurance,
+    handEyeCoordination,
+    teamSpirit,
+    heightAdvantage,
+  };
+}
 
-    const aptitudeScores = {};
+// 素質診断のスコア計算関数
+function calculateAptitudeScores(aptitudeAnswers) {
+  const categories = {
+    "外見": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "身体": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+    "頭脳": [24, 25, 26, 27, 28, 29, 30, 31, 32],
+  };
 
-    for (let category in categories) {
-      let total = 0;
-      categories[category].forEach((index) => {
-        if (aptitudeAnswers[index] !== undefined) {
-          total += aptitudeAnswers[index];
-        }
-      });
-      aptitudeScores[category] = total;
-    }
+  const aptitudeScores = {};
 
-    return aptitudeScores;
-  }
-
-  // 気質診断のスコア計算関数
-  function calculateTraitScores(traitAnswers) {
-    const traitScores = {
-      openness: traitAnswers[0] + traitAnswers[5],          // 質問34, 39
-      conscientiousness: traitAnswers[1],                  // 質問35
-      emotionalStability: traitAnswers[2] + traitAnswers[8], // 質問36, 43
-      extraversion: traitAnswers[3] + traitAnswers[6],     // 質問37, 40
-      agreeableness: traitAnswers[4] + traitAnswers[7],    // 質問38, 41
-    };
-    return traitScores;
-  }
-
-  // 才能診断のスコア計算関数
-  function calculateTalentScores(talentAnswers, aptitudeAnswers) {
-    const talents = {
-      "STEM的才能": [0, 1, 2, 6],          // 質問44, 45, 46, 50
-      "言語的才能": [4, 15],              // 質問48, 59
-      "運動的才能": [16, 17, 18, 20, 21], // 質問60, 61, 62, 64, 65
-      "音楽的才能": [7, 8, 9, 10],        // 質問51, 52, 53, 54
-      "アート的才能": [11, 12],           // 質問55, 56
-    };
-    const talentScores = {};
-
-    for (let talent in talents) {
-      let total = 0;
-      talents[talent].forEach((index) => {
-        total += talentAnswers[index];
-      });
-      talentScores[talent] = total;
-    }
-
-    // 質問6（「指が長いですか？」）を音楽的才能の評価に追加
-    const question6Answer = aptitudeAnswers[5];
-    talentScores["音楽的才能"] += question6Answer * 5;
-    return talentScores;
-  }
-
-  // その他の特性スコアを計算する関数
-  function sumAnswers(answers, indices) {
+  for (let category in categories) {
     let total = 0;
-    indices.forEach((index) => {
-      total += answers[index];
-    });
-    return total;
-  }
-  function calculateFineMotorSkills(talentAnswers) {
-    const indices = [5, 6]; // 質問49, 50
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateAuditorySensitivity(talentAnswers) {
-    const indices = [7]; // 質問51
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateRhythmSense(talentAnswers) {
-    const indices = [8, 9]; // 質問52, 53
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateInnovation(talentAnswers) {
-    const indices = [11]; // 質問55
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculatePatience(talentAnswers) {
-    const indices = [12]; // 質問56
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateProblemSolving(talentAnswers) {
-    const indices = [0, 2]; // 質問44, 46
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateAttentionToDetail(talentAnswers) {
-    const indices = [13]; // 質問57
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateLanguageAptitude(talentAnswers) {
-    const indices = [4, 15]; // 質問48, 59
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateAgility(talentAnswers) {
-    const indices = [16]; // 質問60
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateEndurance(talentAnswers) {
-    const indices = [17]; // 質問61
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateHandEyeCoordination(talentAnswers) {
-    const indices = [18]; // 質問62
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateTeamSpirit(talentAnswers) {
-    const indices = [19, 21]; // 質問63, 65
-    return sumAnswers(talentAnswers, indices);
-  }
-
-  function calculateHeightAdvantage(aptitudeAnswers) {
-    const indices = [0]; // 質問1（背が高い）
-    return sumAnswers(aptitudeAnswers, indices);
-  }
-
-  // レッスンのおすすめを生成する関数
-  function generateLessonRecommendations(scores, childName, childGender, childAge) {
-    const lessons = [
-      // 自己競争のスポーツ
-      {
-        name: "陸上競技",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            endurance: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "水泳",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            endurance: 10,
-          });
-        },
-      },
-      {
-        name: "体操",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "新体操",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-            rhythmSense: 10,
-          });
-        },
-      },
-      {
-        name: "テニス",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "卓球",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-          });
-        },
-      },
-      // ガチ競争のスポーツ
-      {
-        name: "ソフトテニス",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "バドミントン",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "柔道",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            endurance: 10,
-          });
-        },
-      },
-      {
-        name: "空手",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            handEyeCoordination: 10,
-            endurance: 10,
-          });
-        },
-      },
-      {
-        name: "フェンシング",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            agility: 10,
-            handEyeCoordination: 10,
-          });
-        },
-      },
-      // 集団競争のスポーツ
-      {
-        name: "ドッジボール",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            teamSpirit: 10,
-            agility: 10,
-          });
-        },
-      },
-      {
-        name: "サッカー",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            teamSpirit: 10,
-            agility: 10,
-            endurance: 10,
-          });
-        },
-      },
-      {
-        name: "野球",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            teamSpirit: 10,
-            handEyeCoordination: 10,
-          });
-        },
-      },
-      {
-        name: "バスケットボール",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            teamSpirit: 10,
-            agility: 10,
-            heightAdvantage: 10,
-          });
-        },
-      },
-      {
-        name: "ハンドボール",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            teamSpirit: 10,
-            agility: 10,
-          });
-        },
-      },
-      // 表現競争のスポーツ
-      {
-        name: "ダンス（ジャズ、ヒップホップ、バレエ）",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            rhythmSense: 10,
-            handEyeCoordination: 10,
-          });
-        },
-      },
-      {
-        name: "一輪車",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            physicalTalent: 20,
-            balance: 10,
-            handEyeCoordination: 10,
-          });
-        },
-      },
-      // 音楽的才能（個人演奏）
-      {
-        name: "ピアノ",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            musicalTalent: 20,
-            fineMotorSkills: 10,
-            patience: 10,
-          });
-        },
-      },
-      {
-        name: "ヴァイオリン",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            musicalTalent: 20,
-            fineMotorSkills: 10,
-            auditorySensitivity: 10,
-          });
-        },
-      },
-      {
-        name: "フルート",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            musicalTalent: 20,
-            fineMotorSkills: 10,
-            auditorySensitivity: 10,
-          });
-        },
-      },
-      // 音楽的才能（集団演奏）
-      {
-        name: "合唱",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            musicalTalent: 20,
-            auditorySensitivity: 10,
-            teamSpirit: 10,
-          });
-        },
-      },
-      {
-        name: "吹奏楽",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            musicalTalent: 20,
-            fineMotorSkills: 10,
-            teamSpirit: 10,
-          });
-        },
-      },
-      // アート的才能
-      {
-        name: "絵画",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            artTalent: 20,
-            innovation: 10,
-            attentionToDetail: 10,
-          });
-        },
-      },
-      {
-        name: "造形",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            artTalent: 20,
-            innovation: 10,
-            fineMotorSkills: 10,
-          });
-        },
-      },
-      {
-        name: "デザイン",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            artTalent: 20,
-            innovation: 10,
-            attentionToDetail: 10,
-          });
-        },
-      },
-      // 言語・博物学的才能
-      {
-        name: "英語",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            languageAptitude: 20,
-            curiosity: 10,
-          });
-        },
-      },
-      {
-        name: "演劇",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            languageAptitude: 20,
-            extraversion: 10,
-            innovation: 10,
-          });
-        },
-      },
-      // STEM的才能
-      {
-        name: "プログラミング",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            STEMTalent: 20,
-            problemSolving: 10,
-          });
-        },
-      },
-      {
-        name: "ロボット制作",
-        criteria: function (scores) {
-          return calculateLessonScore(scores, {
-            STEMTalent: 20,
-            problemSolving: 10,
-            fineMotorSkills: 10,
-          });
-        },
-      },
-    ];
-
-    // おすすめの習い事を選定
-    const recommendedLessons = lessons
-      .map((lesson) => {
-        const score = lesson.criteria(scores);
-        return { name: lesson.name, score: score };
-      })
-      .filter((lesson) => lesson.score > 0);
-
-    if (recommendedLessons.length === 0) {
-      return `<p class="no-result">申し訳ありませんが、適した習い事が見つかりませんでした。</p>`;
-    }
-
-    // 適性度でソートし、上位20件を取得
-    recommendedLessons.sort((a, b) => b.score - a.score);
-    const topLessons = recommendedLessons.slice(0, 20);
-
-    // 結果を生成
-    let result = `<h2>おすすめの習い事</h2><p><strong>${childName}さん（${childAge}歳、${childGender}）におすすめの習い事:</strong></p>`;
-    topLessons.forEach((lesson, index) => {
-      const aptitudePercentage = Math.round(lesson.score * 100);
-      result += `<ul>${index + 1}位: ${lesson.name}: 適性度 <span class="score">${aptitudePercentage}%</span></ul>`;
-    });
-    result += `</ul>`;
-
-    return result;
-  }
-
-  // 気質評価を生成する関数
-  function generateTemperamentEvaluation(scores) {
-    const traitScores = scores.traitScores;
-
-    const temperamentScores = calculateTemperamentScores(traitScores);
-
-    const highestTemperament = Object.keys(temperamentScores).reduce((a, b) =>
-      temperamentScores[a] > temperamentScores[b] ? a : b
-    );
-
-    const temperamentDescriptions = {
-      "天才気質": "新しいことに対して強い好奇心を持ち、創造力豊かです。独創的なアイデアを生み出す力があり、創造的な活動や発明に向いています。",
-      "研究者気質": "非常に勤勉で、深い集中力を持っています。学問や研究に対して強い関心があり、難しい問題に対しても粘り強く取り組む姿勢があります。",
-      "商人気質": "感情が安定しており、ストレスに強いです。商業やビジネスの分野での適性があります。",
-      "パフォーマー気質": "外向的で社交的です。人前での表現やパフォーマンスに優れ、観客を引きつける力があります。",
-      "共感者気質": "思いやりがあり、他人に対して親切です。協力やチームワークを重視し、友達との協調性が高いです。",
-      "気質のまとめ": "バランスの取れた性格を持ち、創造力、集中力、社交性に優れています。商業やビジネス、パフォーマンス、協力的な活動など、多岐にわたる分野での活躍が期待されます。"
-    };
-
-    let temperamentResult = `<h3>お子様の気質評価：${highestTemperament}</h3>`;
-    temperamentResult += `<p>${temperamentDescriptions[highestTemperament]}</p>`;
-
-    return temperamentResult;
-  }
-
-  // 気質のスコアを計算する関数
-  function calculateTemperamentScores(traitScores) {
-    const temperamentScores = {
-      "天才気質": traitScores.openness,
-      "研究者気質": traitScores.conscientiousness,
-      "商人気質": traitScores.emotionalStability,
-      "パフォーマー気質": traitScores.extraversion,
-      "共感者気質": traitScores.agreeableness,
-    };
-
-    const scoresArray = Object.values(temperamentScores);
-    const maxScore = Math.max(...scoresArray);
-    const minScore = Math.min(...scoresArray);
-    const scoreDifference = maxScore - minScore;
-
-    if (scoreDifference <= 1) {
-      return { "気質のまとめ": maxScore };
-    }
-
-    return temperamentScores;
-  }
-
-  // 才能評価を生成する関数
-  function generateTalentEvaluation(scores) {
-    const talentScores = scores.talentScores;
-
-    // 才能の説明文と最大スコアを設定
-    const talentData = {
-      "STEM的才能": {
-        description: "立体パズルやオセロ、将棋など頭を使う遊びが好きで、計算が得意です。論理的思考や数学に優れており、科学や技術の分野で活躍できるでしょう。",
-        maxScore: 20
-      },
-      "言語的才能": {
-        description: "本を読むことや動物や昆虫について学ぶことが好きで、語彙が豊富です。言語や文学、自然科学に対する関心が高く、作家や研究者としての可能性があります。",
-        maxScore: 20
-      },
-      "運動的才能": {
-        description: "体を動かすことが好きで、バランス感覚が良く、動きが機敏です。スポーツや身体を使った活動に向いています。",
-        maxScore: 20
-      },
-      "音楽的才能": {
-        description: "よく歌ったり、音楽やリズムに体が自然に反応します。音楽に対する感受性が高く、楽器の演奏や歌唱に才能があります。",
-        maxScore: 20
-      },
-      "アート的才能": {
-        description: "絵を描いたり、デザインすることが好きで、図鑑や写真集、映像などを見るのが好きです。芸術やクリエイティブな分野での可能性があります。",
-        maxScore: 20
+    categories[category].forEach((index) => {
+      if (aptitudeAnswers[index] !== undefined) {
+        total += aptitudeAnswers[index];
       }
-    };
-
-    // 才能の評価を生成
-    let talentResult = `<h3>お子様の才能評価：</h3><ul>`;
-    for (let talent in talentData) {
-      const score = talentScores[talent] || 0;
-      const maxScore = talentData[talent].maxScore;
-      const starRating = Math.round((score / maxScore) * 5); // 5段階評価に変換
-      const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
-      talentResult += `<li><strong>${talent}：</strong> ${stars}<br>${talentData[talent].description}</li><br>`;
-    }
-    talentResult += `</ul>`;
-
-    return talentResult;
+    });
+    aptitudeScores[category] = total;
   }
 
-  // スコアを計算する関数（calculateLessonScore）
-  function calculateLessonScore(scores, criteria) {
-    let totalWeight = 0;
-    let achievedScore = 0;
+  return aptitudeScores;
+}
 
-    // 各特性の最大スコアを設定
-    const maxScores = {
-      STEMTalent: 20,
-      physicalTalent: 20,
-      musicalTalent: 20,
-      artTalent: 20,
-      languageAptitude: 20,
-      problemSolving: 10,
-      innovation: 10,
-      agility: 10,
-      endurance: 10,
-      rhythmSense: 10,
-      fineMotorSkills: 10,
-      curiosity: 10,
-      heightAdvantage: 10,
-      teamSpirit: 10,
-      handEyeCoordination: 10,
-      patience: 10,
-      auditorySensitivity: 10,
-      balance: 10,
-      extraversion: 10,
-      attentionToDetail: 10,
-    };
+// 気質診断のスコア計算関数
+function calculateTraitScores(traitAnswers) {
+  const traitScores = {
+    openness: traitAnswers[0] + traitAnswers[5],          // 質問34, 39
+    conscientiousness: traitAnswers[1],                  // 質問35
+    emotionalStability: traitAnswers[2] + traitAnswers[8], // 質問36, 43
+    extraversion: traitAnswers[3] + traitAnswers[6],     // 質問37, 40
+    agreeableness: traitAnswers[4] + traitAnswers[7],    // 質問38, 41
+  };
+  return traitScores;
+}
 
-    for (let key in criteria) {
-      const weight = criteria[key];
-      totalWeight += weight;
-      let scoreValue = 0;
-      if (key === "STEMTalent") {
-        scoreValue = scores.talentScores["STEM的才能"] || 0;
-      } else if (key === "physicalTalent") {
-        scoreValue = scores.talentScores["運動的才能"] || 0;
-      } else if (key === "musicalTalent") {
-        scoreValue = scores.talentScores["音楽的才能"] || 0;
-      } else if (key === "artTalent") {
-        scoreValue = scores.talentScores["アート的才能"] || 0;
-      } else if (key === "languageAptitude") {
-        scoreValue = scores.languageAptitude || 0;
-      } else if (key === "problemSolving") {
-        scoreValue = scores.problemSolving || 0;
-      } else if (key === "innovation") {
-        scoreValue = scores.innovation || 0;
-      } else if (key === "agility") {
-        scoreValue = scores.agility || 0;
-      } else if (key === "endurance") {
-        scoreValue = scores.endurance || 0;
-      } else if (key === "rhythmSense") {
-        scoreValue = scores.rhythmSense || 0;
-      } else if (key === "fineMotorSkills") {
-        scoreValue = scores.fineMotorSkills || 0;
-      } else if (key === "curiosity") {
-        scoreValue = scores.aptitudeScores["頭脳"] || 0;
-      } else if (key === "heightAdvantage") {
-        scoreValue = scores.heightAdvantage || 0;
-      } else if (key === "teamSpirit") {
-        scoreValue = scores.teamSpirit || 0;
-      } else if (key === "handEyeCoordination") {
-        scoreValue = scores.handEyeCoordination || 0;
-      } else if (key === "patience") {
-        scoreValue = scores.patience || 0;
-      } else if (key === "auditorySensitivity") {
-        scoreValue = scores.auditorySensitivity || 0;
-      } else if (key === "balance") {
-        scoreValue = scores.balance || 0;
-      } else if (key === "extraversion") {
-        scoreValue = scores.traitScores.extraversion || 0;
-      } else if (key === "attentionToDetail") {
-        scoreValue = scores.attentionToDetail || 0;
-      }
+// 才能診断のスコア計算関数
+function calculateTalentScores(talentAnswers, aptitudeAnswers) {
+  const talents = {
+    "STEM的才能": [0, 1, 2, 6],          // 質問44, 45, 46, 50
+    "言語的才能": [4, 15],              // 質問48, 59
+    "運動的才能": [16, 17, 18, 20, 21], // 質問60, 61, 62, 64, 65
+    "音楽的才能": [7, 8, 9, 10],        // 質問51, 52, 53, 54
+    "アート的才能": [11, 12],           // 質問55, 56
+  };
+  const talentScores = {};
 
-      const maxScore = maxScores[key] || 10;
-      const normalizedScore = Math.min(1, scoreValue / maxScore);
-      achievedScore += normalizedScore * weight;
+  for (let talent in talents) {
+    let total = 0;
+    talents[talent].forEach((index) => {
+      total += talentAnswers[index];
+    });
+    talentScores[talent] = total;
+  }
+
+  // 質問6（「指が長いですか？」）を音楽的才能の評価に追加
+  const question6Answer = aptitudeAnswers[5];
+  talentScores["音楽的才能"] += question6Answer * 5;
+  return talentScores;
+}
+
+// その他の特性スコアを計算する関数
+function sumAnswers(answers, indices) {
+  let total = 0;
+  indices.forEach((index) => {
+    total += answers[index];
+  });
+  return total;
+}
+
+function calculateFineMotorSkills(talentAnswers) {
+  const indices = [5, 6]; // 質問49, 50
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAuditorySensitivity(talentAnswers) {
+  const indices = [7]; // 質問51
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateRhythmSense(talentAnswers) {
+  const indices = [8, 9]; // 質問52, 53
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateInnovation(talentAnswers) {
+  const indices = [11]; // 質問55
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculatePatience(talentAnswers) {
+  const indices = [12]; // 質問56
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateProblemSolving(talentAnswers) {
+  const indices = [0, 2]; // 質問44, 46
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAttentionToDetail(talentAnswers) {
+  const indices = [13]; // 質問57
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateLanguageAptitude(talentAnswers) {
+  const indices = [4, 15]; // 質問48, 59
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateAgility(talentAnswers) {
+  const indices = [16]; // 質問60
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateEndurance(talentAnswers) {
+  const indices = [17]; // 質問61
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateHandEyeCoordination(talentAnswers) {
+  const indices = [18]; // 質問62
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateTeamSpirit(talentAnswers) {
+  const indices = [19, 21]; // 質問63, 65
+  return sumAnswers(talentAnswers, indices);
+}
+
+function calculateHeightAdvantage(aptitudeAnswers) {
+  const indices = [0]; // 質問1（背が高い）
+  return sumAnswers(aptitudeAnswers, indices);
+}
+
+// レッスンのおすすめを生成する関数
+function generateLessonRecommendations(scores, childName, childGender, childAge) {
+  const lessons = [
+    // 自己競争のスポーツ
+    {
+      name: "陸上競技",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          endurance: 10,
+          agility: 10,
+        });
+      },
+      reason: "体力や持久力があり、素早い動きが得意なお子様におすすめです。",
+    },
+    {
+      name: "水泳",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          endurance: 10,
+        });
+      },
+      reason: "体力とスタミナがあり、水中での運動が好きなお子様に適しています。",
+    },
+    {
+      name: "体操",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          handEyeCoordination: 10,
+          agility: 10,
+        });
+      },
+      reason: "柔軟性が高く、バランス感覚に優れたお子様に最適です。",
+    },
+    {
+      name: "新体操",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          handEyeCoordination: 10,
+          agility: 10,
+          rhythmSense: 10,
+        });
+      },
+      reason: "リズム感と柔軟性があり、表現力豊かなお子様におすすめです。",
+    },
+    {
+      name: "テニス",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          handEyeCoordination: 10,
+          agility: 10,
+        });
+      },
+      reason: "手と目の協調性が高く、素早い反応が得意なお子様に適しています。",
+    },
+    // ガチ競争のスポーツ
+    {
+      name: "柔道",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          endurance: 10,
+        });
+      },
+      reason: "体力と精神力があり、礼儀を重んじるお子様に適しています。",
+    },
+    {
+      name: "空手",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          handEyeCoordination: 10,
+          endurance: 10,
+        });
+      },
+      reason: "集中力と反射神経が高く、礼節を大切にするお子様におすすめです。",
+    },
+    // 集団競争のスポーツ
+    {
+      name: "サッカー",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          teamSpirit: 10,
+          agility: 10,
+          endurance: 10,
+        });
+      },
+      reason: "チームワークが好きで、素早い動きとスタミナがあるお子様に適しています。",
+    },
+    {
+      name: "バスケットボール",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          physicalTalent: 20,
+          teamSpirit: 10,
+          agility: 10,
+          heightAdvantage: 10,
+        });
+      },
+      reason: "身長を活かし、チームプレイが得意なお子様におすすめです。",
+    },
+    // 音楽的才能（個人演奏）
+    {
+      name: "ピアノ",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          musicalTalent: 20,
+          fineMotorSkills: 10,
+          patience: 10,
+        });
+      },
+      reason: "音楽に興味があり、集中力と手先の器用さがあるお子様に適しています。",
+    },
+    // 音楽的才能（集団演奏）
+    {
+      name: "合唱",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          musicalTalent: 20,
+          auditorySensitivity: 10,
+          teamSpirit: 10,
+        });
+      },
+      reason: "歌うことが好きで、協調性が高いお子様におすすめです。",
+    },
+    // アート的才能
+    {
+      name: "絵画",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          artTalent: 20,
+          innovation: 10,
+          attentionToDetail: 10,
+        });
+      },
+      reason: "創造力が豊かで、細部にこだわるお子様に適しています。",
+    },
+    // 言語・博物学的才能
+    {
+      name: "英語",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          languageAptitude: 20,
+          curiosity: 10,
+        });
+      },
+      reason: "言葉に興味があり、新しいことを学ぶのが好きなお子様におすすめです。",
+    },
+    // STEM的才能
+    {
+      name: "プログラミング",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          STEMTalent: 20,
+          problemSolving: 10,
+        });
+      },
+      reason: "論理的思考が得意で、新しい技術に興味があるお子様に適しています。",
+    },
+    {
+      name: "ロボット制作",
+      criteria: function (scores) {
+        return calculateLessonScore(scores, {
+          STEMTalent: 20,
+          problemSolving: 10,
+          fineMotorSkills: 10,
+        });
+      },
+      reason: "機械やものづくりが好きで、手先が器用なお子様におすすめです。",
+    },
+  ];
+
+  // おすすめの習い事を選定
+  const recommendedLessons = lessons
+    .map((lesson) => {
+      const score = lesson.criteria(scores);
+      return { name: lesson.name, score: score, reason: lesson.reason };
+    })
+    .filter((lesson) => lesson.score > 0);
+
+  if (recommendedLessons.length === 0) {
+    return `<p class="no-result">申し訳ありませんが、適した習い事が見つかりませんでした。</p>`;
+  }
+
+  // 適性度でソートし、上位20件を取得
+  recommendedLessons.sort((a, b) => b.score - a.score);
+  const topLessons = recommendedLessons.slice(0, 20);
+
+  // 結果を生成
+  let result = `<h2>おすすめの習い事</h2><p><strong>${childName}さん（${childAge}歳、${childGender}）におすすめの習い事:</strong></p>`;
+  result += `<ul>`;
+  topLessons.forEach((lesson, index) => {
+    const aptitudePercentage = Math.round(lesson.score * 100);
+    result += `<li>${index + 1}位: ${lesson.name}: 適性度 <span class="score">${aptitudePercentage}%</span><br>理由: ${lesson.reason}</li><br>`;
+  });
+  result += `</ul>`;
+
+  return result;
+}
+
+// スコア計算に使用する関数
+function calculateLessonScore(scores, criteria) {
+  let totalWeight = 0;
+  let achievedScore = 0;
+
+  // 各特性の最大スコアを設定
+  const maxScores = {
+    STEMTalent: 20,
+    physicalTalent: 20,
+    musicalTalent: 20,
+    artTalent: 20,
+    languageAptitude: 20,
+    problemSolving: 10,
+    innovation: 10,
+    agility: 10,
+    endurance: 10,
+    rhythmSense: 10,
+    fineMotorSkills: 10,
+    curiosity: 10,
+    heightAdvantage: 10,
+    teamSpirit: 10,
+    handEyeCoordination: 10,
+    patience: 10,
+    auditorySensitivity: 10,
+    balance: 10,
+    extraversion: 10,
+    attentionToDetail: 10,
+  };
+
+  for (let key in criteria) {
+    const weight = criteria[key];
+    totalWeight += weight;
+    let scoreValue = 0;
+    if (key === "STEMTalent") {
+      scoreValue = scores.talentScores["STEM的才能"] || 0;
+    } else if (key === "physicalTalent") {
+      scoreValue = scores.talentScores["運動的才能"] || 0;
+    } else if (key === "musicalTalent") {
+      scoreValue = scores.talentScores["音楽的才能"] || 0;
+    } else if (key === "artTalent") {
+      scoreValue = scores.talentScores["アート的才能"] || 0;
+    } else if (key === "languageAptitude") {
+      scoreValue = scores.languageAptitude || 0;
+    } else if (key === "problemSolving") {
+      scoreValue = scores.problemSolving || 0;
+    } else if (key === "innovation") {
+      scoreValue = scores.innovation || 0;
+    } else if (key === "agility") {
+      scoreValue = scores.agility || 0;
+    } else if (key === "endurance") {
+      scoreValue = scores.endurance || 0;
+    } else if (key === "rhythmSense") {
+      scoreValue = scores.rhythmSense || 0;
+    } else if (key === "fineMotorSkills") {
+      scoreValue = scores.fineMotorSkills || 0;
+    } else if (key === "curiosity") {
+      scoreValue = scores.aptitudeScores["頭脳"] || 0;
+    } else if (key === "heightAdvantage") {
+      scoreValue = scores.heightAdvantage || 0;
+    } else if (key === "teamSpirit") {
+      scoreValue = scores.teamSpirit || 0;
+    } else if (key === "handEyeCoordination") {
+      scoreValue = scores.handEyeCoordination || 0;
+    } else if (key === "patience") {
+      scoreValue = scores.patience || 0;
+    } else if (key === "auditorySensitivity") {
+      scoreValue = scores.auditorySensitivity || 0;
+    } else if (key === "balance") {
+      scoreValue = scores.balance || 0;
+    } else if (key === "extraversion") {
+      scoreValue = scores.traitScores.extraversion || 0;
+    } else if (key === "attentionToDetail") {
+      scoreValue = scores.attentionToDetail || 0;
     }
 
-    const finalScore = achievedScore / totalWeight;
-    return finalScore;
+    const maxScore = maxScores[key] || 10;
+    const normalizedScore = Math.min(1, scoreValue / maxScore);
+    achievedScore += normalizedScore * weight;
   }
+
+  const finalScore = achievedScore / totalWeight;
+  return finalScore;
+}
+
+// 気質評価を生成する関数
+function generateTemperamentEvaluation(scores) {
+  const traitScores = scores.traitScores;
+
+  const temperamentScores = calculateTemperamentScores(traitScores);
+
+  const highestTemperament = Object.keys(temperamentScores).reduce((a, b) =>
+    temperamentScores[a] > temperamentScores[b] ? a : b
+  );
+
+  const temperamentDescriptions = {
+    "天才気質": "新しいことに対して強い好奇心を持ち、創造力豊かです。独創的なアイデアを生み出す力があり、創造的な活動や発明に向いています。",
+    "研究者気質": "非常に勤勉で、深い集中力を持っています。学問や研究に対して強い関心があり、難しい問題に対しても粘り強く取り組む姿勢があります。",
+    "商人気質": "感情が安定しており、ストレスに強いです。商業やビジネスの分野での適性があります。",
+    "パフォーマー気質": "外向的で社交的です。人前での表現やパフォーマンスに優れ、観客を引きつける力があります。",
+    "共感者気質": "思いやりがあり、他人に対して親切です。協力やチームワークを重視し、友達との協調性が高いです。",
+    "気質のまとめ": "バランスの取れた性格を持ち、創造力、集中力、社交性に優れています。商業やビジネス、パフォーマンス、協力的な活動など、多岐にわたる分野での活躍が期待されます。"
+  };
+
+  let temperamentResult = `<h3>お子様の気質評価：${highestTemperament}</h3>`;
+  temperamentResult += `<p>${temperamentDescriptions[highestTemperament]}</p>`;
+
+  return temperamentResult;
+}
+
+// 気質のスコアを計算する関数
+function calculateTemperamentScores(traitScores) {
+  const temperamentScores = {
+    "天才気質": traitScores.openness,
+    "研究者気質": traitScores.conscientiousness,
+    "商人気質": traitScores.emotionalStability,
+    "パフォーマー気質": traitScores.extraversion,
+    "共感者気質": traitScores.agreeableness,
+  };
+
+  const scoresArray = Object.values(temperamentScores);
+  const maxScore = Math.max(...scoresArray);
+  const minScore = Math.min(...scoresArray);
+  const scoreDifference = maxScore - minScore;
+
+  if (scoreDifference <= 1) {
+    return { "気質のまとめ": maxScore };
+  }
+
+  return temperamentScores;
+}
+
+// 才能評価を生成する関数
+function generateTalentEvaluation(scores) {
+  const talentScores = scores.talentScores;
+
+  // 才能の説明文と最大スコアを設定
+  const talentData = {
+    "STEM的才能": {
+      description: "立体パズルやオセロ、将棋など頭を使う遊びが好きで、計算が得意です。論理的思考や数学に優れており、科学や技術の分野で活躍できるでしょう。",
+      maxScore: 20
+    },
+    "言語的才能": {
+      description: "本を読むことや動物や昆虫について学ぶことが好きで、語彙が豊富です。言語や文学、自然科学に対する関心が高く、作家や研究者としての可能性があります。",
+      maxScore: 20
+    },
+    "運動的才能": {
+      description: "体を動かすことが好きで、バランス感覚が良く、動きが機敏です。スポーツや身体を使った活動に向いています。",
+      maxScore: 20
+    },
+    "音楽的才能": {
+      description: "よく歌ったり、音楽やリズムに体が自然に反応します。音楽に対する感受性が高く、楽器の演奏や歌唱に才能があります。",
+      maxScore: 20
+    },
+    "アート的才能": {
+      description: "絵を描いたり、デザインすることが好きで、図鑑や写真集、映像などを見るのが好きです。芸術やクリエイティブな分野での可能性があります。",
+      maxScore: 20
+    }
+  };
+
+  // 才能の評価を生成
+  let talentResult = `<h3>お子様の才能評価：</h3><ul>`;
+  for (let talent in talentData) {
+    const score = talentScores[talent] || 0;
+    const maxScore = talentData[talent].maxScore;
+    const starRating = Math.round((score / maxScore) * 5); // 5段階評価に変換
+    const stars = '★'.repeat(starRating) + '☆'.repeat(5 - starRating);
+    talentResult += `<li><strong>${talent}：</strong> ${stars}<br>${talentData[talent].description}</li><br>`;
+  }
+  talentResult += `</ul>`;
+
+  return talentResult;
+}
 </script>
 
 
