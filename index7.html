@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本的なグラデーションエフェクト - Three.js</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                time: { value: 0 }
+            },
+            vertexShader: `
+                void main() {
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform float time;
+
+                void main() {
+                    vec2 uv = gl_FragCoord.xy / vec2(640, 480);
+                    vec3 col = 0.5 + 0.5 * cos(time + uv.xyx + vec3(0,2,4));
+                    gl_FragColor = vec4(col, 1.0);
+                }
+            `
+        });
+
+        const geometry = new THREE.PlaneGeometry(2, 2);
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        function animate(time) {
+            requestAnimationFrame(animate);
+            material.uniforms.time.value = time * 0.001;
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

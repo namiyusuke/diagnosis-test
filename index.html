@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>お子様の習い事診断</title>
     <style>
       .question {
@@ -15,6 +16,8 @@
       }
       .results {
         margin-top: 20px;
+        max-width: 800px;
+        margin-inline: auto;
       }
       .score {
         font-weight: bold;
@@ -814,12 +817,16 @@
 
       <input type="submit" value="診断結果を表示" />
     </form>
-
-
+    <button id="button">Download PDF</button>
     <div id="lessonRecommendation" class="results">
 
     </div>
    <script>
+  document.querySelector("#button").addEventListener("click", () => {
+  const content = document.querySelector(".results");
+  const filename = "sample.pdf";
+  html2pdf(content).save(filename);
+});
  // フォームの送信イベントのリスナー
 document.getElementById("lessonForm").addEventListener("submit", function (event) {
   event.preventDefault();
