@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML to PDF Converter</title>
+
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    #pdf-content { max-width: 800px; margin: 0 auto; padding: 20px; }
+    h1, h2, h3, h4 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    #download-button { margin: 20px auto; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; display: block; }
+    form { margin-bottom: 20px; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"], input[type="number"] { width: 100%; padding: 5px; margin-top: 5px; }
+    .radio-group { margin-top: 5px; }
+    .radio-group label { display: inline; margin-right: 10px; }
+    .question { margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <div >
+    <h1>HTML to PDF Converter</h1>
+
+    <form id="lessonForm">
+      <h2>お子様の情報を入力してください</h2>
+
+      <label for="childName">お名前（ニックネーム）:</label>
+      <input type="text" id="childName" name="childName" required>
+
+      <label>性別:</label>
+      <div class="radio-group">
+        <input type="radio" id="genderMale" name="gender" value="男の子" required>
+        <label for="genderMale">男の子</label>
+        <input type="radio" id="genderFemale" name="gender" value="女の子">
+        <label for="genderFemale">女の子</label>
+      </div>
+
+      <label for="childAge">年齢:</label>
+      <input type="number" id="childAge" name="childAge" min="0" max="18" required>
+
+      <h3>素質診断</h3>
+      <h4>外見的素質</h4>
+
+      <div class="question">
+        <label>1. 周りと比べて背は高いですか？</label>
+        <div class="radio-group">
+          <input id="q1-1" type="radio" name="q1" value="1" required>
+          <label for="q1-1">はい</label>
+          <input id="q1-2" type="radio" name="q1" value="0">
+          <label for="q1-2">いいえ</label>
+        </div>
+      </div>
+
+
+    </form>
+
+    <div id="pdf-content">
+      <h2>サンプルテーブル</h2>
+      <table>
+        <tr><th colspan="2">SAMPLE</th></tr>
+        <tr><th>No.1</th><td>A - a</td></tr>
+        <tr><th>No.2</th><td>B - b</td></tr>
+        <tr><th>No.3</th><td>C - c</td></tr>
+        <tr><th>No.4</th><td>D - d</td></tr>
+        <tr><th>No.5</th><td>E - e</td></tr>
+        <tr><th>No.6</th><td>F - f</td></tr>
+        <tr><th>No.7</th><td>G - g</td></tr>
+        <tr><th>No.8</th><td>H - h</td></tr>
+        <tr><th>No.9</th><td>I - i</td></tr>
+      </table>
+        <h2>サンプルテーブル</h2>
+      <table>
+        <tr><th colspan="2">SAMPLE</th></tr>
+        <tr><th>No.1</th><td>A - a</td></tr>
+        <tr><th>No.2</th><td>B - b</td></tr>
+        <tr><th>No.3</th><td>C - c</td></tr>
+        <tr><th>No.4</th><td>D - d</td></tr>
+        <tr><th>No.5</th><td>E - e</td></tr>
+        <tr><th>No.6</th><td>F - f</td></tr>
+        <tr><th>No.7</th><td>G - g</td></tr>
+        <tr><th>No.8</th><td>H - h</td></tr>
+        <tr><th>No.9</th><td>I - i</td></tr>
+      </table>
+        <h2>サンプルテーブル</h2>
+      <table>
+        <tr><th colspan="2">SAMPLE</th></tr>
+        <tr><th>No.1</th><td>A - a</td></tr>
+        <tr><th>No.2</th><td>B - b</td></tr>
+        <tr><th>No.3</th><td>C - c</td></tr>
+        <tr><th>No.4</th><td>D - d</td></tr>
+        <tr><th>No.5</th><td>E - e</td></tr>
+        <tr><th>No.6</th><td>F - f</td></tr>
+        <tr><th>No.7</th><td>G - g</td></tr>
+        <tr><th>No.8</th><td>H - h</td></tr>
+        <tr><th>No.9</th><td>I - i</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <button id="download-button">Download PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById('download-button').addEventListener('click', function () {
+      var element = document.querySelector('pdf-content');
+      html2pdf().from(element).save();
+    });
+  </script>
+</body>
+</html>
