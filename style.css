@@ -331,3 +331,21 @@ input[type="submit"]:hover {
     font-size: 18px;
   }
 }
+.js-result button{
+  border: 2px solid #4CAF50;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+.js-result{
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+
+}

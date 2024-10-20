@@ -816,22 +816,31 @@
 
       <input type="submit" value="診断結果を表示" />
     </form>
-   <!-- ボタンにスタイルを追加 -->
-      <button id="download-button">Download PDF</button>
     <div id="lessonRecommendation" class="pdf-content">
 
     </div>
+    <div class="js-result"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
  <script>
-// Download PDFボタンのイベントリスナー
-document.getElementById('download-button').addEventListener('click', function () {
-  var element = document.querySelector('.pdf-content');
-  html2pdf().from(element).save();
-});
-
+//   if(document.getElementById('download-button') !== null) {
+//    document.getElementById('download-button').addEventListener('click', function () {
+//   var element = document.querySelector('.pdf-content');
+//   html2pdf().from(element).save();
+// });
+//   }
 // フォームの送信イベントのリスナー
 document.getElementById("lessonForm").addEventListener("submit", function (event) {
   event.preventDefault();
+  // Download PDFボタンを追加
+  const downloadButton = document.createElement("button");
+  downloadButton.id = "download-button";
+  downloadButton.textContent = "習い事をPDFでダウンロード";
+  document.querySelector(".js-result").appendChild(downloadButton);
+    // ボタンが生成された後にイベントリスナーを設定
+  downloadButton.addEventListener('click', function () {
+    var element = document.querySelector('.pdf-content');
+    html2pdf().from(element).save();
+  });
   const answers = [];
   const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
 
