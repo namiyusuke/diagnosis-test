@@ -839,7 +839,15 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
     // ボタンが生成された後にイベントリスナーを設定
   downloadButton.addEventListener('click', function (){
     var element = document.querySelector('.pdf-content');
-    html2pdf().from(element).output('dataurlnewwindow');
+     html2pdf()
+        .from(element)
+        .outputPdf('datauristring')
+        .then(function (pdfAsDataUri) {
+          const newTab = window.open();
+          newTab.document.write(
+            '<iframe width="100%" height="100%" src="' + pdfAsDataUri + '"></iframe>'
+          );
+        });
   });
   const answers = [];
   const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
