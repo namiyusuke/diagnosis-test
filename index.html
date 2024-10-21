@@ -736,7 +736,7 @@
 
         <!-- 質問60 -->
         <div class="question">
-          <p>17. 素早く動くことが得意ですか？（1～5で評価）</p>
+          <p>17. すぐに行動に移せますか？（1～5で評価）</p>
           <select id="q60" name="q60" required>
             <option value="">選択してください</option>
             <option value="1">1（まったく当てはまらない）</option>
@@ -834,12 +834,12 @@ document.getElementById("lessonForm").addEventListener("submit", function (event
   // Download PDFボタンを追加
   const downloadButton = document.createElement("button");
   downloadButton.id = "download-button";
-  downloadButton.textContent = "習い事をPDFでダウンロード";
+  downloadButton.textContent = "診断結果をPDFでダウンロード";
   document.querySelector(".js-result").appendChild(downloadButton);
     // ボタンが生成された後にイベントリスナーを設定
-  downloadButton.addEventListener('click', function () {
+  downloadButton.addEventListener('click', function (){
     var element = document.querySelector('.pdf-content');
-    html2pdf().from(element).save();
+    html2pdf().from(element).output('dataurlnewwindow');
   });
   const answers = [];
   const aptitudeCategories = new Set(); // 素質評価のカテゴリを保存するセットを追加
